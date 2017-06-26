@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-navbar>
+      <ion-title text-center>Timeline</ion-title>
+    </ion-navbar>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="fondo">
+  <ion-card>
+
+  <ion-card-content class="tittle">
+    <span>Quieres publicar algo? <a (click)="back()">ir a home </a></span>
+  </ion-card-content>
+
+</ion-card>
+
+<ion-card>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="../../assets/img/logo.png">
+    </ion-avatar>
+    <h2>chica Modelo</h2>
+    <p>Agencia VeneTours Fotopose</p>
+  </ion-item>
+  <div class="cardd" (click)="presentModal()">
+    <img src="../../assets/img/pic6.jpg">
+  </div>
+    
+  <ion-card-content>
+    <h2 class="titlecard">Show Time</h2>
+    <!--<p class="pcard">This is a "Facebook" styled Card. The header is created from a Thumbnail List item, the content is from a card-body consisting-->
+    <!--            of an image and paragraph text. The footer consists of tabs, icons aligned left, within the card-footer.</p>-->
+  </ion-card-content>
+
+  <ion-row>
+    
+    <ion-col col-4>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>
+    
+    <ion-col col-4>
+      <button style="padding:0px;" ion-button icon-left clear small (click)="presentModal()">
+        <ion-icon name="text"></ion-icon>
+        <div>3 Comments</div>
+      </button>
+    </ion-col>
+    
+    <ion-col col-4>
+      <button ion-button icon-left clear small (click)="presentPopover($event)">
+        <ion-icon name="share"></ion-icon>
+        <div>Share</div>
+      </button>
+    </ion-col>
+    
+  </ion-row>
+
+</ion-card>
+
+</ion-content>

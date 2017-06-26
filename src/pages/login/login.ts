@@ -1,0 +1,74 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
+import { ToastController } from 'ionic-angular';
+
+import { PerfilPage } from '../perfil/perfil';
+import { RegistroPage } from '../registro/registro';
+import { LostpassPage } from '../lostpass/lostpass';
+import { TimelinePage } from '../timeline/timeline';
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+@IonicPage()
+@Component({
+  selector: 'page-login',
+  templateUrl: 'login.html',
+})
+export class LoginPage {
+  email;
+  password;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams,public auth: Auth, public user: User, public toastCtrl: ToastController) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad LoginPage');
+  }
+  registro(){
+    this.navCtrl.push(RegistroPage);
+  }
+  dashboard(){
+    console.log('login');
+     console.log(this.email);
+       console.log(this.password);
+     if(this.email != undefined ||  this.password != undefined){
+       let details = { 'email': this.email, 'password': this.password };
+       this.auth.login('basic' , details).then(() => {
+      //   this.push.register().then((t: PushToken) => {
+      //     console.log('reg push');
+      //   return this.push.saveToken(t);
+      // }).then((t: PushToken) => {
+      //   console.log('Token saved:', t.token);
+      // });
+      this.navCtrl.push(PerfilPage);
+        
+       }, (err) => {
+           console.log('error  ');
+             console.log(err);
+              let toast = this.toastCtrl.create({
+                message: 'Su email o Password son incorrectos',
+                duration: 3000
+            });
+            toast.present();
+          });
+     }else {
+      let toast = this.toastCtrl.create({
+        message: 'Verifique sus datos',
+        duration: 3000
+    });
+    toast.present();
+     }
+    // this.navCtrl.push(Dashboard);
+}
+
+  contrasena(){
+    this.navCtrl.push(LostpassPage);
+  }
+  timeline(){
+    this.navCtrl.push(TimelinePage);
+  }
+}

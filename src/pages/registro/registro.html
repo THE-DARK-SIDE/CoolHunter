@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar class="rosa">
+    <ion-title text-center>Registro</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="fondo">
+  <div class="spacer" style="height: 150px;"></div>
+
+   <ion-list id="color">
+    <button ion-button round class="botonn">
+		<ion-item class="input-color">
+      <ion-label fixed>Full Name:</ion-label>
+			<ion-input type="text" [(ngModel)]="dates.nombre" required [ngModelOptions]= "{standalone: true}" ></ion-input>
+		</ion-item>
+    </button>
+
+    <button ion-button round class="botonn">
+		<ion-item class="input-color">
+      <ion-label fixed>Email:</ion-label>
+			<ion-input  [(ngModel)]="dates.email" type="email"  name="email" required [ngModelOptions]="{standalone: true}" ></ion-input>
+		</ion-item>
+    </button>
+
+    <button ion-button round class="botonn">
+		<ion-item class="input-color">
+      <ion-label fixed>Password:</ion-label>
+			<ion-input type="password " [(ngModel)]="dates.password" name="password" required [ngModelOptions]="{standalone: true} "></ion-input>
+		</ion-item>
+    </button>
+
+    <button ion-button round class="botonn" id="color">
+    <ion-item class="input-color">
+      <ion-label fixed>repeat password:</ion-label>
+			<ion-input type="password " [(ngModel)]="dates.password2" name="Repetir" required [ngModelOptions]="{standalone: true} " ></ion-input>
+		</ion-item>
+    </button>
+		
+	</ion-list>
+
+      <p class="pk">You can also login with:</p>
+
+      <div class="rayita"></div>
+        	<ion-grid>
+      		<ion-row class="asd">
+      			<ion-col width-33 class="text-center link-color" >
+      				<div class="facebook ion-social-facebook"><ion-icon class="icoo" name="logo-facebook"></ion-icon></div>
+      			</ion-col>
+      			<ion-col width-33 class="text-center link-color" >
+      				<div class="twitter ion-social-twitter"><ion-icon class="icoo" name="logo-twitter"></ion-icon></div>
+      			</ion-col>
+      			<ion-col width-33 class="text-center link-color" >
+      				 <div class="instagram ion-social-instagram"><ion-icon class="icoo" name="logo-instagram"></ion-icon></div>
+      			</ion-col>
+      
+      		</ion-row>
+      	</ion-grid>
+</ion-content>
+
+<ion-footer id="footer">
+  <ion-toolbar text-center>
+    <form (ngSubmit)="registrar()">
+      <button ion-button color="rosado" round>Registrar</button>
+    </form>    
+  </ion-toolbar>
+</ion-footer>

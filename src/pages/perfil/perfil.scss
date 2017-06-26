@@ -1,0 +1,168 @@
+page-perfil {
+    .fondo{
+        background: rgba(0,0,0,1);
+        background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(43,43,43,1) 0%, rgba(17,17,17,1) 0%, rgba(19,19,19,1) 7%, rgba(102,102,102,1) 99%, rgba(76,76,76,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(0%, rgba(28,28,28,1)), color-stop(0%, rgba(43,43,43,1)), color-stop(0%, rgba(17,17,17,1)), color-stop(7%, rgba(19,19,19,1)), color-stop(99%, rgba(102,102,102,1)), color-stop(100%, rgba(76,76,76,1)));
+        background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(43,43,43,1) 0%, rgba(17,17,17,1) 0%, rgba(19,19,19,1) 7%, rgba(102,102,102,1) 99%, rgba(76,76,76,1) 100%);
+        background: -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(43,43,43,1) 0%, rgba(17,17,17,1) 0%, rgba(19,19,19,1) 7%, rgba(102,102,102,1) 99%, rgba(76,76,76,1) 100%);
+        background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(43,43,43,1) 0%, rgba(17,17,17,1) 0%, rgba(19,19,19,1) 7%, rgba(102,102,102,1) 99%, rgba(76,76,76,1) 100%);
+        background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(43,43,43,1) 0%, rgba(17,17,17,1) 0%, rgba(19,19,19,1) 7%, rgba(102,102,102,1) 99%, rgba(76,76,76,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#4c4c4c', GradientType=0 );
+    }
+    .toolbar-title{
+        text-align: center;
+        padding-left: 0px;
+        padding-right: 45px;
+        color:white;
+    }
+    
+    .toolbar-background{
+        background: #1c252c;
+    }
+    .grid{
+        background: #444444;
+    }
+    .back-trans{
+		background: white;
+        border-radius: 100%;
+        max-width: 120px;
+        margin: 0 auto;
+	}
+	.image{
+        border-radius: 100%;
+        margin: 0 auto;
+        width: 100%;
+        height: 105px;
+        max-height: 105px;
+    }
+    ion-header{
+        border: 1px solid #ecd4d0
+    }
+    .item{
+        background-color: #6b6b6b ;
+    }
+    .fondo2{
+         background-color: #6b6b6b ;
+    }
+    .pa50{
+        height:25px;
+    }
+    .div-mar{
+	    margin: 0px 0 40px 0;
+      .item{
+        text-align: center
+      }
+    }
+    .imgmenu{
+        float: left;
+        border-radius: 100%;
+        border: 1px white solid;
+        padding: 10px;
+    }
+    
+    #menu{
+        ion-icon{
+            color: white;
+            border-radius: 100%;
+            background: #868282;
+            padding: 5px;
+            font-size: 2.4rem;
+        }
+        p{
+            color:#b1b1b1;
+        }
+        h2{
+            color:white;
+        }
+        .label{
+            color:white;
+        }
+        .text{
+            padding-left: 10px;
+        }
+        .item-md ion-icon[item-left] + .item-inner{
+            margin-left:0px;
+        }
+    }
+    .profile-content{
+
+    margin-top:10px;
+    width: 100%;
+    text-align: center;
+
+    .name{
+      font-size: 24px;
+      font-family: verdana;
+      text-transform: capitalize;
+      color: #fcf7f7;
+
+    }
+    .subname{
+      font-size: 14px;
+      
+      text-transform: capitalize;
+      color: #fcf7f7;
+
+    }
+     .roles{
+
+      padding-top:5px;
+      padding-bottom: 5px;
+      text-align:center;
+      width: 70%;
+      margin:0 auto;
+      border-bottom: 2px solid #fe195b;
+
+    }
+
+      .roles-icon{
+        margin:0 auto;
+        width: 100%;
+        text-align: center;
+        
+        .rol-icon{
+          display: inline-block;
+          text-align: center;
+          width: 20%;
+          margin-left:5px;
+          margin-right: 5px;
+          margin-bottom: 5px;
+          
+          .rol{
+
+            font-size: 20px;
+            display: inline-block;
+            margin-top:15px;
+            margin-left:15px;
+            margin-right: 10px;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            border-radius:50%;
+            padding-top: 4px;
+            // padding-right:2px;
+            background:#fe195b;
+            color: white;
+            // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            -moz-box-shadow: 0 1px 3px  rgba(0,0,0,0.3);
+            -o-box-shadow: 0 1px 3px  rgba(0,0,0,0.3);
+            box-shadow: 0 1px 3px  rgba(0,0,0,0.3);  
+          }
+          .rol-name{
+            width: 100%;
+            text-align: center;
+            font-size: 9px;
+            text-transform: capitalize;
+            color: #fcf7f7;
+
+          }
+        }
+
+      
+      }
+    }
+    .segment-md .segment-button{
+        color:white;
+    }
+}

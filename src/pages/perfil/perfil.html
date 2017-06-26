@@ -1,0 +1,163 @@
+<ion-menu [content]='menu' id="menu">
+	<ion-content class="fondo2">
+
+		<div class="pa50"></div>
+
+		<ion-list class="div-mar">
+		  <ion-item>
+		    <ion-thumbnail class="imgmenu" >
+		      <img ngIF="img" src="{{img}}" style="border-radius:50%;margin: 0 auto;">
+		    </ion-thumbnail>
+		    <div style="padding-top:30px;">
+			    <h2 ngIF="nombre" >{{nombre}}</h2>
+			    <p ngIF="correo">{{correo}}</p>	
+		    </div>
+		  </ion-item>
+		</ion-list>
+
+		<ion-list id="menusito">
+			<button ion-item class="text-center2">
+        <ion-icon name="star" item-left></ion-icon>
+        <ion-label class="text">Search</ion-label>
+			
+			</button>
+			<button ion-item class="text-center2">
+        <ion-icon name="star" item-left></ion-icon>
+		<ion-label class="text">Browser</ion-label>
+			</button>
+			<button ion-item class="text-center2" >
+        <ion-icon name="star" item-left></ion-icon>
+		<ion-label class="text">Playlist</ion-label>
+			</button>
+			<button ion-item class="text-center2" (click)="salir()" >
+        <ion-icon name="star" item-left></ion-icon>
+		<ion-label class="text">Logout</ion-label>
+			</button>  
+		</ion-list>
+
+
+	</ion-content>
+</ion-menu>
+<ion-nav id="menu" #menu [root]="rootPage"></ion-nav> 
+
+<ion-header>
+
+	<ion-toolbar>
+		<button ion-button menuToggle>
+      		<ion-icon name="menu"></ion-icon>
+    	</button>
+     	<ion-title>My Profile</ion-title>
+    </ion-toolbar>
+
+	
+</ion-header>
+
+
+<ion-content padding class="fondo">
+  
+  <ion-grid>
+		<ion-row>
+			<ion-col width-50 class="back-trans" ngIF="dates.photo">
+				<ion-thumbnail (click)="presentActionSheet();"><img src="{{dates.photo}}" class="image"></ion-thumbnail>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col width-50 class="">
+				<div class="profile-content">
+
+                <span class="name" ngIF="nombre">{{nombre}}</span>
+                <!--</label>-->
+                <br>
+                <span class="subname">new description!</span>
+                <!--</label>-->
+                <br>
+                <div class="roles"></div>
+                <div class="roles-icon">
+
+                  <div class="rol-icon">
+                  	<div class="rol"><ion-icon name="camera" item-left></ion-icon></div>
+                    
+                    <div class="rol-name">Photographer</div>
+                  </div>
+
+                  <div class="rol-icon">
+                  	<div class="rol"><ion-icon name="brush" item-left></ion-icon></div>
+                    
+                    <div class="rol-name">Make Up</div>
+                  </div>
+
+                  <div class="rol-icon">
+                  	<div class="rol"><ion-icon name="home" item-left></ion-icon></div>
+                    
+                    <div class="rol-name">Agency</div>
+                  </div>
+
+                </div>
+
+              </div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	
+	<ion-grid>
+		<ion-row>
+			<ion-col col-12 class="">
+				<ion-segment [(ngModel)]="profile" padding color="white">
+			    <ion-segment-button value="pictures">
+			      Pictures
+			    </ion-segment-button>
+			    <ion-segment-button value="histories">
+			      Histories
+			    </ion-segment-button>
+			    <ion-segment-button value="account">
+			      Account
+			    </ion-segment-button>
+			  </ion-segment>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	
+	<div [ngSwitch]="profile">
+
+  <ion-list *ngSwitchCase="'pictures'">
+    
+	  <ion-grid>
+			<ion-row>
+				<ion-col col-12 class="">
+					hola
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'histories'">
+    <ion-grid>
+			<ion-row>
+				<ion-col col-12 class="">
+					<ion-item>
+				    <ion-avatar item-left>
+				      <img src="../../assets/img/logo.png">
+				    </ion-avatar>
+				    <h2>chica Modelo</h2><ion-icon name="star" item-right>5</ion-icon>
+				    <p>Agencia VeneTours Fotopose</p>
+				  </ion-item>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'account'">
+    <ion-grid>
+			<ion-row>
+				<ion-col col-12 class="">
+					:)
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+  </ion-list>
+
+</div>
+	
+
+</ion-content>
