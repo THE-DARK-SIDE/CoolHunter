@@ -5,8 +5,18 @@
 </ion-header>
 
 <ion-content padding class="fondo">
-  <div class="spacer" style="height: 150px;"></div>
-
+  <ion-grid>
+	      <ion-row>
+          <ion-col>
+            <ion-thumbnail>
+               <img style="margin:0 auto;width: 55%;" src="assets/img/icon.png"/>
+            </ion-thumbnail>
+          </ion-col>
+        </ion-row>
+  </ion-grid>
+  <div class="spacer" style="height: 50px;"></div>
+    
+  
    <ion-list id="color">
 
     <button ion-button round class="botonn">
@@ -30,7 +40,7 @@
   <ion-grid>
 		<ion-row>
 			<ion-col col>
-				<button ion-button round full style="background:#ff1664;" (click)="dashboard()">Entrar</button>
+				<button ion-button round full style="background:#ff1664;">Enviar</button>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
