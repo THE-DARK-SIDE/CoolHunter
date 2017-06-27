@@ -22,19 +22,23 @@ export class LoginPage {
   email;
   password;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams,public auth: Auth, public user: User, public toastCtrl: ToastController) {
+  constructor(
+    public navCtrl: NavController, public navParams: NavParams,public auth: Auth, public user: User, public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+
   registro(){
     this.navCtrl.push(RegistroPage);
   }
+
   dashboard(){
     console.log('login');
-     console.log(this.email);
-       console.log(this.password);
+    console.log(this.email);
+    console.log(this.password);
+
      if(this.email != undefined ||  this.password != undefined){
        let details = { 'email': this.email, 'password': this.password };
        this.auth.login('basic' , details).then(() => {
@@ -68,7 +72,20 @@ export class LoginPage {
   contrasena(){
     this.navCtrl.push(LostpassPage);
   }
+
   timeline(){
     this.navCtrl.push(TimelinePage);
+  }
+
+  loginConFacebook(){
+    this.auth.login('facebook').then();
+  }
+
+  loginConTwitter(){
+    this.auth.login('twitter').then();
+  }
+
+  loginConInstagram(){
+    this.auth.login('instagram').then();
   }
 }
