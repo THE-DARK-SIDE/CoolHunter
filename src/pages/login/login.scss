@@ -83,5 +83,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
     .button-round{
     border-radius: 64px;
     padding: 0 12.4rem;
-}
+    }
+    #toogle{
+        .remember{
+        font-size: 14px;
+        color: white;
+        padding-left: 0;
+        background-color: transparent;
+        }
+        .toggle .toggle-icon{
+        border: solid white 1px;
+        background-color: transparent;
+        }
+        .toggle-md.toggle-checked .toggle-inner{
+        background-color: #e546c2;
+        }
+        .item-md.item-block .item-inner{
+        padding-right: 0px;
+        border-bottom: none;
+
+        }
+    }
+    
 }

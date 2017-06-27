@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, PopoverController, ModalController
 import { PopoverPage } from '../popover/popover';
 import { ModalPage } from '../modal/modal';
 import { SearchPage } from '../search/search';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the TimelinePage page.
@@ -41,6 +42,6 @@ export class TimelinePage {
   }
   
   back(){
-    this.viewCtrl.dismiss();
+    this.navCtrl.push(LoginPage);
  }
 }

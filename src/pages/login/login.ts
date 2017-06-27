@@ -48,6 +48,11 @@ export class LoginPage {
       // }).then((t: PushToken) => {
       //   console.log('Token saved:', t.token);
       // });
+      let toast = this.toastCtrl.create({
+        message: 'Successful login',
+        duration: 3000
+        });
+        toast.present();
       this.navCtrl.push(PerfilPage);
         
        }, (err) => {
@@ -79,13 +84,28 @@ export class LoginPage {
 
   loginConFacebook(){
     this.auth.login('facebook').then();
+     let toast = this.toastCtrl.create({
+        message: 'Successful login',
+        duration: 3000
+        });
+        toast.present();
   }
 
   loginConTwitter(){
     this.auth.login('twitter').then();
+     let toast = this.toastCtrl.create({
+        message: 'Successful login',
+        duration: 3000
+        });
+        toast.present();
   }
 
   loginConInstagram(){
     this.auth.login('instagram').then();
+     let toast = this.toastCtrl.create({
+        message: 'Successful login',
+        duration: 3000
+        });
+        toast.present();
   }
 }

@@ -41,7 +41,7 @@
       <p class="pk">You can also login with:</p>
 
       <div class="rayita"></div>
-        	<ion-grid>
+        <ion-grid>
       		<ion-row class="asd">
       			<ion-col width-33 class="text-center link-color" >
       				<div class="facebook ion-social-facebook"><ion-icon class="icoo" name="logo-facebook"></ion-icon></div>
@@ -52,15 +52,16 @@
       			<ion-col width-33 class="text-center link-color" >
       				 <div class="instagram ion-social-instagram"><ion-icon class="icoo" name="logo-instagram"></ion-icon></div>
       			</ion-col>
-      
       		</ion-row>
       	</ion-grid>
-</ion-content>
 
-<ion-footer id="footer">
-  <ion-toolbar text-center>
-    <form (ngSubmit)="registrar()">
-      <button ion-button color="rosado" round>Registrar</button>
-    </form>    
-  </ion-toolbar>
-</ion-footer>
+        <ion-grid>
+          <ion-row>
+              <ion-col col>
+                <form (ngSubmit)="registrar()">
+                  <button ion-button round full style="background:#ff1664;">Enviar</button>
+                  </form>
+              </ion-col>
+          </ion-row>
+        </ion-grid>
+</ion-content>
