@@ -109,3 +109,4 @@ export class LoginPage {
         toast.present();
   }
 }
+//guia de login -> https://docs.ionic.io/services/auth/facebook-auth.html
