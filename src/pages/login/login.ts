@@ -89,7 +89,8 @@ export class LoginPage {
     this.auth.login('facebook').then();
      let toast = this.toastCtrl.create({
         message: 'Successful login',
-        duration: 3000
+        duration: 3000,
+         position: 'top'
         });
         toast.present();
   }
@@ -98,7 +99,8 @@ export class LoginPage {
     this.auth.login('twitter').then();
      let toast = this.toastCtrl.create({
         message: 'Successful login',
-        duration: 3000
+        duration: 3000,
+         position: 'top'
         });
         toast.present();
   }
@@ -107,7 +109,8 @@ export class LoginPage {
     this.auth.login('instagram').then();
      let toast = this.toastCtrl.create({
         message: 'Successful login',
-        duration: 3000
+        duration: 3000,
+         position: 'top'
         });
         toast.present();
   }
