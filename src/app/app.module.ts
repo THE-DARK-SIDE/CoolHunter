@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Auth, User } from '@ionic/cloud-angular';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -53,7 +54,7 @@ const cloudSettings: CloudSettings = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    
+    IonicStorageModule.forRoot(),
     CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],

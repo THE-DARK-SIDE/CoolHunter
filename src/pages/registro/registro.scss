@@ -12,16 +12,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
     .item{
     padding: 6px;
     }
+    ion-icon{
+        padding: 0px 15px 0px 0px;
+    }
     .bar-button-default{
         color:white;
     }
-    .item-input, .item-input label {
-    width: 100%;
-    color: white;
-    background: #444444;
-    height: 45px;
-    font-size: 16px;
-  }
+//     .item-input, .item-input label {
+//     width: 100%;
+//     color: white;
+//     background: #444444;
+//     height: 45px;
+//     font-size: 16px;
+//   }
+    .text-input{
+            color:white;
+            
+        }
+        .input-color{
+        background:transparent;
+        
+    }
   #botones-routers .button-pink{
       background: #ff1664;
       color: white;
@@ -122,5 +133,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
     border-radius: 64px;
     padding: 0 12.4rem;
         }
+    }
+    .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus.item-inner{
+        border-bottom-color: #ff1664;
+        box-shadow: inset 0 -1px 0 0 #ff1664;
+    }
+    .list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child{
+        border-bottom-color: #ff1664;
+        box-shadow: inset 0 -1px 0 0 #ff1664;
     }
 }

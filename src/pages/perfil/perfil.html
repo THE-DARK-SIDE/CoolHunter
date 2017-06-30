@@ -18,16 +18,16 @@
 		<ion-list id="menusito">
 			<button ion-item class="text-center2">
         <ion-icon name="star" item-left></ion-icon>
-        <ion-label class="text">Search</ion-label>
+        <ion-label class="text">Timeline</ion-label>
 			
 			</button>
 			<button ion-item class="text-center2">
         <ion-icon name="star" item-left></ion-icon>
-		<ion-label class="text">Browser</ion-label>
+		<ion-label class="text">Search</ion-label>
 			</button>
 			<button ion-item class="text-center2" >
         <ion-icon name="star" item-left></ion-icon>
-		<ion-label class="text">Playlist</ion-label>
+		<ion-label class="text">Other</ion-label>
 			</button>
 			<button ion-item class="text-center2" (click)="salir()" >
         <ion-icon name="star" item-left></ion-icon>
@@ -117,14 +117,23 @@
 		</ion-row>
 	</ion-grid>
 	
-	<div [ngSwitch]="profile">
+<div [ngSwitch]="profile">
 
   <ion-list *ngSwitchCase="'pictures'">
     
 	  <ion-grid>
 			<ion-row>
 				<ion-col col-12 class="">
-					hola
+					<button ion-item class="text-center2" (click)="prueba()" >
+						<ion-icon name="star" item-left></ion-icon>
+						<ion-label class="text">prueba</ion-label>
+					</button>
+				</ion-col>
+				<ion-col col-12 class="">
+					<button ion-item class="text-center2" (click)="prueba2()" >
+						<ion-icon name="star" item-left></ion-icon>
+						<ion-label class="text">prueba2</ion-label>
+					</button>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
@@ -156,7 +165,6 @@
 			</ion-row>
 		</ion-grid>
   </ion-list>
-
 </div>
 	
 

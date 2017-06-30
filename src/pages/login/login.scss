@@ -12,6 +12,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
     .pa50{
         height:25px;
     }
+    .toolbar-title-md{
+        text-align: center;
+        padding-left: 0px;
+        padding-right: 45px;
+        color:white;
+    }
+    .toolbar-title-ios{
+        text-align: center;
+        color:white;
+    }
+    .bar-button-default{
+        color:white;
+    }
     .input-color{
         background:transparent;
         
@@ -23,10 +36,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
         color:white;
         
     }
-    .toolbar-title{
-        color: #424a52;
-        text-align: center;
-    }
+    .label {
+    margin: 13px 0px 13px 0;
+}
     .toolbar-background{
         background: #1c252c;
     }
@@ -96,7 +108,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
         background-color: transparent;
         }
         .toggle-md.toggle-checked .toggle-inner{
-        background-color: #e546c2;
+        background-color: #ff1664;
         }
         .item-md.item-block .item-inner{
         padding-right: 0px;
@@ -104,5 +116,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 
         }
     }
-    
+    .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus.item-inner{
+        border-bottom-color: #ff1664;
+        box-shadow: inset 0 -1px 0 0 #ff1664;
+    }
+    .list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child{
+        border-bottom-color: #ff1664;
+        box-shadow: inset 0 -1px 0 0 #ff1664;
+    }
 }

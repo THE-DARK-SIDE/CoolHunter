@@ -50,7 +50,8 @@ export class LoginPage {
       // });
       let toast = this.toastCtrl.create({
         message: 'Successful login',
-        duration: 3000
+        duration: 3500,
+        position: 'top'
         });
         toast.present();
       this.navCtrl.push(PerfilPage);
@@ -60,14 +61,16 @@ export class LoginPage {
              console.log(err);
               let toast = this.toastCtrl.create({
                 message: 'Su email o Password son incorrectos',
-                duration: 3000
+                duration: 3500,
+                position: 'top'
             });
             toast.present();
           });
      }else {
       let toast = this.toastCtrl.create({
         message: 'Verifique sus datos',
-        duration: 3000
+        duration: 3500,
+        position: 'top'
     });
     toast.present();
      }

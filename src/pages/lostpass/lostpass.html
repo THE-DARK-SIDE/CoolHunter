@@ -20,21 +20,20 @@
    <ion-list id="color">
     <p class="pk">Recover your password:</p>
 
-      <div class="rayita"></div>
-    <button ion-button round class="botonn">
-		<ion-item class="input-color">
-      <ion-label fixed>Email:</ion-label>
-			<!--<ion-input  [(ngModel)]="dates.email" type="email"  name="email" required [ngModelOptions]="{standalone: true}" ></ion-input>-->
-			<ion-input type="email" name="email" ></ion-input>
-		</ion-item>
-    </button>
+      <!--<div class="rayita"></div>-->
+        <ion-item class="input-color">
+					<ion-label>
+						<ion-icon class="icon" name="mail"></ion-icon>Email
+					</ion-label>
+					<ion-input type="email"></ion-input>
+				</ion-item>	
 		
 	</ion-list>
 
   <ion-grid>
 		<ion-row>
 			<ion-col col>
-				<button ion-button round full style="background:#ff1664;">Enviar</button>
+				<button ion-button round full style="background:#ff1664;">Send</button>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
