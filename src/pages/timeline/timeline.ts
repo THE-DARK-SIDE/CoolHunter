@@ -1,17 +1,15 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, PopoverController, ModalController, ViewController } from 'ionic-angular';
+
+import { PostsService } from '../../services/posts.service';
 
 import { PopoverPage } from '../popover/popover';
 import { ModalPage } from '../modal/modal';
 import { SearchPage } from '../search/search';
 import { LoginPage } from '../login/login';
 
-/**
- * Generated class for the TimelinePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { DetailPage } from '../detail/detail';
+
 @IonicPage()
 @Component({
   selector: 'page-timeline',
@@ -19,8 +17,18 @@ import { LoginPage } from '../login/login';
 })
 export class TimelinePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController,public modalCtrl: ModalController,public viewCtrl: ViewController) {
-  }
+  posts = [];
+
+  @ViewChild('myNav') nav: NavController;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController,
+  public modalCtrl: ModalController,public viewCtrl: ViewController, public postsService : PostsService) {
+    
+    postsService.getPosts().subscribe(posts => {
+      this.posts = posts;
+    });
+
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TimelinePage');
@@ -31,9 +39,9 @@ export class TimelinePage {
       ev: myEvent
     });
   }
-   presentModal() {
+   presentModal(id) {
     // let modal = this.modalCtrl.create(ModalPage, { userId: 8675309 });
-    let modal = this.modalCtrl.create(ModalPage);
+    let modal = this.modalCtrl.create(ModalPage,{id:id});
     modal.present();
     }
   
@@ -44,4 +52,11 @@ export class TimelinePage {
   back(){
     this.navCtrl.push(LoginPage);
  }
+
+ public goToDetailPage(id){
+
+    this.navCtrl.push(DetailPage,{id:id});
+
+  }
+
 }

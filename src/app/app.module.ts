@@ -7,6 +7,7 @@ import { Auth, User } from '@ionic/cloud-angular';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { IonicStorageModule } from '@ionic/storage';
 
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -18,6 +19,20 @@ import { LostpassPage } from '../pages/lostpass/lostpass';
 import { PopoverPage } from '../pages/popover/popover';
 import { ModalPage } from '../pages/modal/modal';
 import { SearchmodalPage } from '../pages/searchmodal/searchmodal';
+import { DetailPage } from '../pages/detail/detail';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { PostsService } from '../services/posts.service';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBKO28EsR4sF_Fd5lYKpvdv6NdrvBqOzmk",
+  authDomain: "cool-hunter-ae940.firebaseapp.com",
+  databaseURL: "https://cool-hunter-ae940.firebaseio.com",
+  storageBucket: "cool-hunter-ae940.appspot.com",
+  messagingSenderId: '163958807996'
+};
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -49,13 +64,17 @@ const cloudSettings: CloudSettings = {
     LostpassPage,
     PopoverPage,
     ModalPage,
-    SearchmodalPage
+    SearchmodalPage,
+    DetailPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    CloudModule.forRoot(cloudSettings)
+    CloudModule.forRoot(cloudSettings),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -69,12 +88,14 @@ const cloudSettings: CloudSettings = {
     LostpassPage,
     PopoverPage,
     ModalPage,
-    SearchmodalPage
+    SearchmodalPage,
+    DetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PostsService
   ]
 })
 export class AppModule {}
