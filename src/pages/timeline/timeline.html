@@ -16,12 +16,13 @@
 
 <ion-content class="fondo">
   <ion-card>
-
-  <ion-card-content class="tittle">
-    <span>Quieres publicar algo? <a (click)="back()">ir a home </a></span>
-  </ion-card-content>
-
-</ion-card>
+      <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/logo.png">
+      </ion-avatar>
+      <h2>Quieres publicar algo? <a (click)="back()">ir a home </a></h2>
+    </ion-item>
+  </ion-card>
 
 <ion-card>
 
@@ -34,37 +35,46 @@
   </ion-item>
   <div class="cardd" (click)="presentModal()">
     <img src="assets/img/pic6.jpg">
+    <!--<ion-fab>
+      <button ion-fab>
+        <ion-icon name="heart-outline"></ion-icon>
+      </button>
+    </ion-fab>-->
   </div>
     
   <ion-card-content>
-    <h2 class="titlecard">Show Time</h2>
+    <ion-row>
+      <ion-col>
+        <h2 class="titlecard">Show Time</h2>
+      </ion-col>
+      <ion-col style="text-align: right">
+      <button style="font-size:15px;"ion-button icon-left clear small (click)="presentPopover($event)">
+        <ion-icon name="ios-more"></ion-icon>
+      </button>
+    </ion-col>
+    </ion-row>
     <!--<p class="pcard">This is a "Facebook" styled Card. The header is created from a Thumbnail List item, the content is from a card-body consisting-->
     <!--            of an image and paragraph text. The footer consists of tabs, icons aligned left, within the card-footer.</p>-->
   </ion-card-content>
 
   <ion-row>
-    
-    <ion-col col-4>
+    <ion-col>
       <button ion-button icon-left clear small>
         <ion-icon name="thumbs-up"></ion-icon>
         <div>12 Likes</div>
       </button>
     </ion-col>
-    
-    <ion-col col-4>
+    <ion-col>
       <button style="padding:0px;" ion-button icon-left clear small (click)="presentModal()">
         <ion-icon name="text"></ion-icon>
         <div>3 Comments</div>
       </button>
     </ion-col>
-    
-    <ion-col col-4>
-      <button ion-button icon-left clear small (click)="presentPopover($event)">
-        <ion-icon name="share"></ion-icon>
-        <div>Share</div>
-      </button>
+    <ion-col center text-center>
+      <ion-note>
+        <ion-label style="margin: 10px 8px 10px 0;">11h ago</ion-label>
+      </ion-note>
     </ion-col>
-    
   </ion-row>
 
 </ion-card>

@@ -5,39 +5,38 @@
 </ion-header>
 
 <ion-content padding class="fondo">
-  <div class="spacer" style="height: 150px;"></div>
+  <div class="spacer" style="height: 50px;"></div>
 
    <ion-list id="color">
-    <button ion-button round class="botonn">
+     
 		<ion-item class="input-color">
-      <ion-label fixed>Full Name:</ion-label>
+      <ion-label><ion-icon class="icon" name="person"></ion-icon>Full Name:</ion-label>
 			<ion-input type="text" [(ngModel)]="dates.nombre" required [ngModelOptions]= "{standalone: true}" ></ion-input>
 		</ion-item>
-    </button>
 
-    <button ion-button round class="botonn">
+    
 		<ion-item class="input-color">
-      <ion-label fixed>Email:</ion-label>
+      <ion-label><ion-icon class="icon" name="mail"></ion-icon>Email:</ion-label>
 			<ion-input  [(ngModel)]="dates.email" type="email"  name="email" required [ngModelOptions]="{standalone: true}" ></ion-input>
 		</ion-item>
-    </button>
+    
 
-    <button ion-button round class="botonn">
+    
 		<ion-item class="input-color">
-      <ion-label fixed>Password:</ion-label>
+      <ion-label><ion-icon class="icon" name="lock"></ion-icon>Password:</ion-label>
 			<ion-input type="password " [(ngModel)]="dates.password" name="password" required [ngModelOptions]="{standalone: true} "></ion-input>
 		</ion-item>
-    </button>
+    
 
-    <button ion-button round class="botonn" id="color">
+  
     <ion-item class="input-color">
-      <ion-label fixed>repeat password:</ion-label>
+      <ion-label><ion-icon class="icon" name="unlock"></ion-icon>repeat password:</ion-label>
 			<ion-input type="password " [(ngModel)]="dates.password2" name="Repetir" required [ngModelOptions]="{standalone: true} " ></ion-input>
 		</ion-item>
-    </button>
+    
 		
 	</ion-list>
-
+  <div class="spacer" style="height: 25px;"></div>
       <p class="pk">You can also login with:</p>
 
       <div class="rayita"></div>

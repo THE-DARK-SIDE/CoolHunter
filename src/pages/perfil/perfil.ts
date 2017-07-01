@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, ActionSheetController, Platform, T
 import { Camera } from 'ionic-native';
 import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 import { LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { AlertController } from 'ionic-angular';
+
 
 import { LoginPage } from '../login/login';
 
@@ -24,8 +27,8 @@ export class PerfilPage {
   correo;
   nombre;
   img;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,public auth: Auth,public user: User, public loadingCtrl: LoadingController,public toastCtrl: ToastController, public platform: Platform,public menuCtrl: MenuController) {
+  prueba1;
+  constructor(public alertCtrl: AlertController,public storage: Storage,public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,public auth: Auth,public user: User, public loadingCtrl: LoadingController,public toastCtrl: ToastController, public platform: Platform,public menuCtrl: MenuController) {
   
     if (this.auth.isAuthenticated()) {
           
@@ -63,8 +66,8 @@ export class PerfilPage {
           handler: () => {
             Camera.getPicture({
               destinationType:Camera.DestinationType.DATA_URL,
-              targetWidth: 1000,
-              targetHeight: 1000,
+              targetWidth: 500,
+              targetHeight: 500,
             }).then((imageData) => {
             // imageData is either a base64 encoded string or a file URI
             // If it's base64:
@@ -85,8 +88,8 @@ export class PerfilPage {
             Camera.getPicture({
               destinationType : Camera.DestinationType.DATA_URL,
               sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
-              targetWidth: 1000,
-              targetHeight: 1000,
+              targetWidth: 500,
+              targetHeight: 500,
             }).then((imageData) => {
             // imageData is either a base64 encoded string or a file URI
             // If it's base64:
@@ -111,12 +114,39 @@ export class PerfilPage {
     });
     actionSheet.present();
   }
-  
+  prueba(){
+    this.storage.set('prueba1','hola mundo');
+    console.log(this.storage);
+  }
+  prueba2(){
+    this.storage.get('prueba1').then((data)=>{
+    console.log(data);
+    });
+  }
   salir(){
-    console.log('salir');
-    this.menuCtrl.enable(false);
-    this.auth.logout();
-    this.navCtrl.push(LoginPage);
+    let confirm = this.alertCtrl.create({
+      title: 'Salir de la App?',
+      message: 'Usted esta saliendo de esta applicacion, esta usted seguro?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Logout',
+          handler: () => {
+            console.log('Agree clicked');
+            console.log('salir');
+            this.menuCtrl.enable(false);
+            this.auth.logout();
+            this.navCtrl.push(LoginPage);
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }
