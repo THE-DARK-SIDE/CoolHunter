@@ -89,5 +89,38 @@ export class RegistroPage {
 		}
 		//loader.dismiss();
   }
+  loginConFacebook(){
+    this.auth.login('facebook').then(()=>{
+      const full_name = this.user.social.facebook.data.full_name;
+      const profile_picture = this.user.social.facebook.data.profile_picture;
+      const full_email = this.user.social.facebook.data.email;
+    });
+     let toast = this.toastCtrl.create({
+        message: 'Successful login',
+        duration: 3000,
+         position: 'top'
+        });
+        toast.present();
+  }
+
+  loginConTwitter(){
+    this.auth.login('twitter').then();
+     let toast = this.toastCtrl.create({
+        message: 'Successful login',
+        duration: 3000,
+         position: 'top'
+        });
+        toast.present();
+  }
+
+  loginConInstagram(){
+    this.auth.login('instagram').then();
+     let toast = this.toastCtrl.create({
+        message: 'Successful login',
+        duration: 3000,
+         position: 'top'
+        });
+        toast.present();
+  }
 	
 }

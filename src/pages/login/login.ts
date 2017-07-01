@@ -22,7 +22,9 @@ export class LoginPage {
 
   email;
   password;
-  
+  fullname;
+  fullemail;
+  profilepicture;
   constructor(
     public navCtrl: NavController, public navParams: NavParams,public auth: Auth, public user: User, public toastCtrl: ToastController) {
   }
@@ -87,50 +89,48 @@ export class LoginPage {
   }
 
   loginConFacebook(){
-
-    this.auth.login('facebook').then(function(){
-
+    this.auth.login('facebook').then(()=>{
+      this.fullname = this.user.social.facebook.data.full_name;
+      this.profilepicture = this.user.social.facebook.data.profile_picture;
+      this.fullemail = this.user.social.facebook.data.email;
+      this.navCtrl.push(PerfilPage);
       let toast = this.toastCtrl.create({
         message: 'Successful login',
         duration: 3000,
-        position: 'top'
-      });
-      
-      toast.present();
-
-    });
-
+         position: 'top'
+        });
+        toast.present();
+    }, (err) => {
+           console.log('error  ');
+             console.log(err);
+              let toast = this.toastCtrl.create({
+                message: 'Su email o Password son incorrectos',
+                duration: 3500,
+                position: 'top'
+            });
+            toast.present();
+          });
   }
 
   loginConTwitter(){
-    
-    this.auth.login('twitter').then(function(){
-
-      let toast = this.toastCtrl.create({
+    this.auth.login('twitter').then();
+     let toast = this.toastCtrl.create({
         message: 'Successful login',
         duration: 3000,
-        position: 'top'
-      });
-      
-      toast.present();
-
-    });
-
+         position: 'top'
+        });
+        toast.present();
   }
 
   loginConInstagram(){
-
-    this.auth.login('instagram').then(function(){
-
-      let toast = this.toastCtrl.create({
+    this.auth.login('instagram').then();
+     let toast = this.toastCtrl.create({
         message: 'Successful login',
         duration: 3000,
-        position: 'top'
-      });
-      
-      toast.present();
-
-    });
+         position: 'top'
+        });
+        toast.present();
+  }
 
   }
 //guia de login -> https://docs.ionic.io/services/auth/facebook-auth.html
