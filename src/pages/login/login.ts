@@ -22,6 +22,7 @@ export class LoginPage {
 
   email;
   password;
+  dates = { fullname:'', fullemail:'',profilepicture:''}
   fullname;
   fullemail;
   profilepicture;
@@ -89,6 +90,7 @@ export class LoginPage {
   }
 
   loginConFacebook(){
+      let details: UserDetails = { 'email': this.dates.fullemail ,'name': this.dates.fullname,'image': this.dates.profilepicture};          
     this.auth.login('facebook').then(()=>{
       this.fullname = this.user.social.facebook.data.full_name;
       this.profilepicture = this.user.social.facebook.data.profile_picture;
