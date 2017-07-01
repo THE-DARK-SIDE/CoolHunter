@@ -19,6 +19,7 @@ import { TimelinePage } from '../timeline/timeline';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+
   email;
   password;
   
@@ -86,33 +87,50 @@ export class LoginPage {
   }
 
   loginConFacebook(){
-    this.auth.login('facebook').then();
-     let toast = this.toastCtrl.create({
+
+    this.auth.login('facebook').then(function(){
+
+      let toast = this.toastCtrl.create({
         message: 'Successful login',
         duration: 3000,
-         position: 'top'
-        });
-        toast.present();
+        position: 'top'
+      });
+      
+      toast.present();
+
+    });
+
   }
 
   loginConTwitter(){
-    this.auth.login('twitter').then();
-     let toast = this.toastCtrl.create({
+    
+    this.auth.login('twitter').then(function(){
+
+      let toast = this.toastCtrl.create({
         message: 'Successful login',
         duration: 3000,
-         position: 'top'
-        });
-        toast.present();
+        position: 'top'
+      });
+      
+      toast.present();
+
+    });
+
   }
 
   loginConInstagram(){
-    this.auth.login('instagram').then();
-     let toast = this.toastCtrl.create({
+
+    this.auth.login('instagram').then(function(){
+
+      let toast = this.toastCtrl.create({
         message: 'Successful login',
         duration: 3000,
-         position: 'top'
-        });
-        toast.present();
+        position: 'top'
+      });
+      
+      toast.present();
+
+    });
+
   }
-}
 //guia de login -> https://docs.ionic.io/services/auth/facebook-auth.html
