@@ -7,7 +7,7 @@ import { PopoverPage } from '../popover/popover';
 import { ModalPage } from '../modal/modal';
 import { SearchPage } from '../search/search';
 import { LoginPage } from '../login/login';
-
+import { PublicarPage } from '../publicar/publicar';
 import { DetailPage } from '../detail/detail';
 
 @IonicPage()
@@ -43,7 +43,11 @@ export class TimelinePage {
     // let modal = this.modalCtrl.create(ModalPage, { userId: 8675309 });
     let modal = this.modalCtrl.create(ModalPage,{id:id});
     modal.present();
-    }
+  }
+  publicar(){
+    let modal2 = this.modalCtrl.create(PublicarPage);
+    modal2.present();
+  }
   
   search(){
     this.navCtrl.push(SearchPage);

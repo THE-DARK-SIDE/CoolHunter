@@ -6,7 +6,7 @@ import { ToastController } from 'ionic-angular';
 import { PerfilPage } from '../perfil/perfil';
 import { RegistroPage } from '../registro/registro';
 import { LostpassPage } from '../lostpass/lostpass';
-import { TimelinePage } from '../timeline/timeline';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -83,10 +83,6 @@ export class LoginPage {
 
   contrasena(){
     this.navCtrl.push(LostpassPage);
-  }
-
-  timeline(){
-    this.navCtrl.push(TimelinePage);
   }
 
   loginConFacebook(){

@@ -6,7 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Auth, User } from '@ionic/cloud-angular';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { IonicStorageModule } from '@ionic/storage';
-
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -20,9 +22,8 @@ import { PopoverPage } from '../pages/popover/popover';
 import { ModalPage } from '../pages/modal/modal';
 import { SearchmodalPage } from '../pages/searchmodal/searchmodal';
 import { DetailPage } from '../pages/detail/detail';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { PublicarPage } from '../pages/publicar/publicar';
+
 
 import { PostsService } from '../services/posts.service';
 
@@ -65,7 +66,8 @@ const cloudSettings: CloudSettings = {
     PopoverPage,
     ModalPage,
     SearchmodalPage,
-    DetailPage
+    DetailPage,
+    PublicarPage
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,8 @@ const cloudSettings: CloudSettings = {
     PopoverPage,
     ModalPage,
     SearchmodalPage,
-    DetailPage
+    DetailPage,
+    PublicarPage
   ],
   providers: [
     StatusBar,

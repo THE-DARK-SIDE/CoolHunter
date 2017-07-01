@@ -8,6 +8,8 @@ import { AlertController } from 'ionic-angular';
 
 
 import { LoginPage } from '../login/login';
+import { TimelinePage } from '../timeline/timeline';
+import { SearchPage } from '../search/search';
 
 /**
  * Generated class for the PerfilPage page.
@@ -148,5 +150,10 @@ export class PerfilPage {
     });
     confirm.present();
   }
-
+  timeline(){
+    this.navCtrl.push(TimelinePage);
+  }
+  search(){
+    this.navCtrl.push(SearchPage);
+  }
 }
