@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController, Platform, ViewController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import { PostsService } from '../../services/posts.service';
+import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
+
 
 /**
  * Generated class for the PublicarPage page.
@@ -24,9 +26,28 @@ export class PublicarPage {
 
   id = null;
 
-  constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams,
-  public actionSheetCtrl: ActionSheetController,public platform: Platform, public postsService: PostsService) {
+  dates = { photo:''}
 
+  correo;
+
+  nombre;
+
+  constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams,
+  public actionSheetCtrl: ActionSheetController,public platform: Platform, public postsService: PostsService,
+  public auth: Auth,public user: User) {
+
+     if (this.auth.isAuthenticated()) {
+          
+            console.log(this.user);
+            this.dates.photo = this.user.get('photo' , '');
+            this.nombre = this.user.details.name;
+            this.correo = this.user.details.email;
+           
+            if(this.dates.photo == null){
+              this.dates.photo = this.user.details.image;
+            }
+            
+          }
     //
     this.id = navParams.get("id");
 

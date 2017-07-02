@@ -5,14 +5,11 @@
 					<ion-card>
 
 						<ion-item>
-
-							<ion-avatar item-left (click)="dismiss()">
-								<img src="assets/img/kevin.jpg">
+							<ion-avatar item-left  *ngIf="dates.photo" (click)="dismiss()">
+								<img src="{{dates.photo}}">
 							</ion-avatar>
-
-								<h2>Kevin Roman</h2>
-								<p><a>¿Que vas a publicar hoy?</a></p> 
-
+								<h2 *ngIf="nombre">{{nombre}}</h2>
+								<p><a>What are you going to publish today?</a></p> 
 						</ion-item>
 
 						<ion-thumbnail (click)="presentActionSheet();">

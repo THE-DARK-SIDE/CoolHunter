@@ -41,10 +41,10 @@
 
     <ion-item (click)="presentModal(post.id)">
       <ion-avatar item-left>
-        <img src="assets/img/logo.png">
+        <img src="assets/img/kevin.jpg">
       </ion-avatar>
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.text }}</p>
+      <h2>Kevin Roman</h2>
+      <p>Developer Senior</p>
     </ion-item>
 
     <div class="cardd" (click)="presentModal(post.id)">
@@ -59,7 +59,7 @@
     <ion-card-content>
       <ion-row>
         <ion-col>
-          <h2 class="titlecard">Show Time</h2>
+          <h2 class="titlecard">{{ post.title }}</h2>
         </ion-col>
         <ion-col style="text-align: right">
         <button style="font-size:15px;"ion-button icon-left clear small (click)="presentPopover($event)">

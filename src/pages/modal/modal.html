@@ -4,18 +4,17 @@
 
   <ion-item>
     <ion-avatar item-left (click)="dismiss()">
-      <img src="assets/img/logo.png">
+        <img src="assets/img/kevin.jpg">
     </ion-avatar>
-    <h2>{{post.title}}</h2>
-    <p>{{post.text}}</p>
+      <h2>Kevin Roman</h2>
+      <p>Developer Senior</p>
   </ion-item>
   
     <img src="{{post.img}}">
     
   <ion-card-content>
-    <h2 class="titlecard">Show Time</h2>
-    <p class="pcard">This is a "Facebook" styled Card. The header is created from a Thumbnail List item, the content is from a card-body consisting
-                of an image and paragraph text. The footer consists of tabs, icons aligned left, within the card-footer.</p>
+    <h2 class="titlecard">{{post.title}}</h2>
+    <p class="pcard">{{post.text}}</p>
   </ion-card-content>
 
   <ion-row>

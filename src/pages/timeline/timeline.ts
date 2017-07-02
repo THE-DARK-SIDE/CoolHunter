@@ -30,7 +30,7 @@ export class TimelinePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController,
   public modalCtrl: ModalController,public viewCtrl: ViewController, public postsService : PostsService,
-  public auth: Auth,public user: User,) {
+  public auth: Auth,public user: User) {
     
     if (this.auth.isAuthenticated()) {
           
