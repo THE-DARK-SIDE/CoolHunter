@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController, Platform, ViewController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
+import { PostsService } from '../../services/posts.service';
+
 /**
  * Generated class for the PublicarPage page.
  *
@@ -13,10 +15,27 @@ import { Camera } from 'ionic-native';
   templateUrl: 'publicar.html',
 })
 export class PublicarPage {
+
   publicacion = {'photo':''};
+  
   public base64Image:string;
 
-  constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,public platform: Platform) {
+  post = {id:null,title:null,text:null};
+
+  id = null;
+
+  constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams,
+  public actionSheetCtrl: ActionSheetController,public platform: Platform, public postsService: PostsService) {
+
+    //
+    this.id = navParams.get("id");
+
+    if(this.id != 0){
+      
+      postsService.getPost(this.id).subscribe(post =>{this.post = post;})
+
+    }
+
   }
 
   ionViewDidLoad() {
@@ -82,9 +101,39 @@ export class PublicarPage {
     });
     actionSheet.present();
   }
+
   dismiss() {
    
    this.viewCtrl.dismiss();
- }
+
+  }
+
+  addPost(){
+
+    if(this.id != 0){
+          
+      // this.post.id = Date.now();
+      this.postsService.editPost(this.post)
+      alert("nota editada")
+
+    }else{
+
+      this.post.id = Date.now();
+      this.postsService.createPost(this.post)
+      alert("nota creada")
+
+    }
+
+      this.navCtrl.pop();
+
+  }
+
+  deletePost(){
+
+    this.postsService.deletePost(this.post);
+    alert("nota creada")
+    this.navCtrl.pop();
+
+  }
 
 }

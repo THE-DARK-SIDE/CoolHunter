@@ -39,7 +39,7 @@
   <!--lista de los posts traidos desde firebase-->
   <ion-card *ngFor="let post of posts">
 
-    <ion-item (click)=goToDetailPage(post.id)>
+    <ion-item (click)="presentModal(post.id)">
       <ion-avatar item-left>
         <img src="assets/img/logo.png">
       </ion-avatar>
@@ -48,7 +48,7 @@
     </ion-item>
 
     <div class="cardd" (click)="presentModal(post.id)">
-      <img src="assets/img/pic6.jpg">
+      <img src="{{ post.img }}" *ngIf = "post.img">
       <!--<ion-fab>
         <button ion-fab>
           <ion-icon name="heart-outline"></ion-icon>

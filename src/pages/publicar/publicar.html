@@ -3,27 +3,40 @@
 			<ion-row>
 				<ion-col col-12>
 					<ion-card>
+
 						<ion-item>
+
 							<ion-avatar item-left (click)="dismiss()">
 								<img src="assets/img/kevin.jpg">
 							</ion-avatar>
+
 								<h2>Kevin Roman</h2>
 								<p><a>¿Que vas a publicar hoy?</a></p> 
+
 						</ion-item>
-						<ion-thumbnail (click)="presentActionSheet();" ngIF="publicacion.photo"><img src="assets/img/screen.png" ></ion-thumbnail>
+
+						<ion-thumbnail (click)="presentActionSheet();">
+							<img src="assets/img/screen.png" >
+						</ion-thumbnail>
+
 						<ion-list>
+
 							<ion-item>
 								<ion-label fixed>Tittle</ion-label>
-								<ion-input type="text" value=""></ion-input>
+								<ion-input type="text" [(ngModel)]="post.title"></ion-input>
 							</ion-item>
+
 							<ion-item>
 								<ion-label fixed>Description</ion-label>
-								<ion-textarea ></ion-textarea>
+								<ion-textarea  [(ngModel)]="post.text"></ion-textarea>
 							</ion-item>
+
 						</ion-list>
+
 						<ion-item>
-							<button ion-button round full style="background:#ff1664;" (click)="dashboard()">Public!</button>
+							<button ion-button round full style="background:#ff1664;" (click)="addPost()">Public!</button>
 						</ion-item>
+
 					</ion-card>
 				</ion-col>
 			</ion-row>

@@ -1,6 +1,8 @@
 import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, PopoverController, ModalController, ViewController } from 'ionic-angular';
 
+// import firebase from 'firebase';
+// import { Camera } from 'ionic-native';
 import { PostsService } from '../../services/posts.service';
 
 import { PopoverPage } from '../popover/popover';
@@ -11,10 +13,12 @@ import { PublicarPage } from '../publicar/publicar';
 import { DetailPage } from '../detail/detail';
 
 @IonicPage()
+
 @Component({
   selector: 'page-timeline',
   templateUrl: 'timeline.html',
 })
+
 export class TimelinePage {
 
   posts = [];
@@ -45,7 +49,7 @@ export class TimelinePage {
     modal.present();
   }
   publicar(){
-    let modal2 = this.modalCtrl.create(PublicarPage);
+    let modal2 = this.modalCtrl.create(PublicarPage,{id:0});
     modal2.present();
   }
   
@@ -62,5 +66,6 @@ export class TimelinePage {
     this.navCtrl.push(DetailPage,{id:id});
 
   }
+
 
 }

@@ -30,7 +30,9 @@ export class PerfilPage {
   nombre;
   img;
   prueba1;
-  constructor(public alertCtrl: AlertController,public storage: Storage,public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,public auth: Auth,public user: User, public loadingCtrl: LoadingController,public toastCtrl: ToastController, public platform: Platform,public menuCtrl: MenuController) {
+  constructor(public alertCtrl: AlertController,public storage: Storage,public navCtrl: NavController, public navParams: NavParams,
+  public actionSheetCtrl: ActionSheetController,public auth: Auth,public user: User, public loadingCtrl: LoadingController,
+  public toastCtrl: ToastController, public platform: Platform,public menuCtrl: MenuController) {
   
     if (this.auth.isAuthenticated()) {
           
