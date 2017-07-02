@@ -6,7 +6,7 @@
 		<ion-list class="div-mar">
 		  <ion-item>
 		    <ion-thumbnail class="imgmenu" >
-		      <img ngIF="img" src="{{img}}" style="border-radius:50%;margin: 0 auto;">
+		      <img ngIF="dates.photo" src="{{dates.photo}}" style="border-radius:50%;margin: 0 auto;">
 		    </ion-thumbnail>
 		    <div style="padding-top:30px;">
 			    <h2 ngIF="nombre" >{{nombre}}</h2>
@@ -140,7 +140,7 @@
 
   </ion-list>
 
-  <ion-list *ngSwitchCase="'histories'">
+  <ion-list *ngSwitchCase="'histories'" id="history">
     <ion-grid>
 			<ion-row>
 				<ion-col col-12 class="">
@@ -148,23 +148,83 @@
 				    <ion-avatar item-left>
 				      <img src="assets/img/logo.png">
 				    </ion-avatar>
-				    <h2>chica Modelo</h2><ion-icon name="star" item-right>5</ion-icon>
-				    <p>Agencia VeneTours Fotopose</p>
+				    <h2 class="histori-h">chica Modelo</h2><ion-icon class="histori-icon" name="star" item-right> 5</ion-icon>
+				    <p style="color:#ccc130">VeneTours Fotopose</p>
 				  </ion-item>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
   </ion-list>
 
-  <ion-list *ngSwitchCase="'account'">
+  <ion-list *ngSwitchCase="'account'" id="account">
     <ion-grid>
 			<ion-row>
 				<ion-col col-12 class="">
-					:)
+					<ion-list>
+							<ion-item class="input-color">
+								<ion-label>
+									<ion-icon class="icon" name="md-person"></ion-icon>Email
+								</ion-label>
+								<ion-input type="email"></ion-input>
+							</ion-item>	
+							<ion-item class="input-color">
+								<ion-label>
+									<ion-icon name="ios-lock-outline"></ion-icon>Age
+								</ion-label>
+								<ion-input type="text"></ion-input>
+							</ion-item>
+							<ion-item class="input-color">
+								<ion-label>
+									<ion-icon name="ios-lock-outline"></ion-icon>Height
+								</ion-label>
+								<ion-input type="text"></ion-input>
+							</ion-item>
+							<ion-item>
+								<ion-label><ion-icon name="ios-lock-outline"></ion-icon>Country</ion-label>
+								<ion-select [(ngModel)]="country">
+									<ion-option value="V">Venezuela</ion-option>
+									<ion-option value="E">España</ion-option>
+									<ion-option value="P">Peru</ion-option>
+									<ion-option value="B">Brasil</ion-option>
+									<ion-option value="U">United States of America</ion-option>
+								</ion-select>
+							</ion-item>
+							<ion-item class="input-color">
+								<ion-label>
+									<ion-icon name="ios-lock-outline"></ion-icon>Phone number
+								</ion-label>
+								<ion-input type="text"></ion-input>
+							</ion-item>
+							<ion-item>
+								<ion-label><ion-icon name="ios-lock-outline"></ion-icon>Gender</ion-label>
+								<ion-select [(ngModel)]="gender">
+									<ion-option value="f">Female</ion-option>
+									<ion-option value="m">Male</ion-option>
+								</ion-select>
+							</ion-item>
+							<ion-item class="input-color">
+								<ion-label floating>
+									<ion-icon name="ios-lock-outline"></ion-icon>Comment
+								</ion-label>
+								<ion-textarea type="text"></ion-textarea>
+							</ion-item>
+							<ion-item>
+								<ion-label>Select Your Rol</ion-label>
+								<ion-select [(ngModel)]="rol" multiple="true" okText="Okay" cancelText="Dismiss">
+									<ion-option value="De">Developer</ion-option>
+									<ion-option value="Ph">Photographer</ion-option>
+									<ion-option value="Mo">Model</ion-option>
+									<ion-option value="Ma">Make Up Artist</ion-option>
+									<ion-option value="Ot">Other</ion-option>									
+								</ion-select>
+							</ion-item>
+
+					</ion-list>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
   </ion-list>
+
 </div>
 	
 

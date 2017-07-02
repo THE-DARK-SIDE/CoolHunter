@@ -1,6 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, PopoverController, ModalController, ViewController } from 'ionic-angular';
-
+import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 // import firebase from 'firebase';
 // import { Camera } from 'ionic-native';
 import { PostsService } from '../../services/posts.service';
@@ -22,12 +22,32 @@ import { DetailPage } from '../detail/detail';
 export class TimelinePage {
 
   posts = [];
-
+  dates = { photo:''}
+  correo;
+  nombre;
+  logeado = null;
   @ViewChild('myNav') nav: NavController;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController,
-  public modalCtrl: ModalController,public viewCtrl: ViewController, public postsService : PostsService) {
+  public modalCtrl: ModalController,public viewCtrl: ViewController, public postsService : PostsService,
+  public auth: Auth,public user: User,) {
     
+    if (this.auth.isAuthenticated()) {
+          
+            console.log(this.user);
+            this.logeado = 1;
+            this.dates.photo = this.user.get('photo' , '');
+            this.nombre = this.user.details.name;
+            this.correo = this.user.details.email;
+           
+            if(this.dates.photo == null){
+              this.dates.photo = this.user.details.image;
+            }
+
+            // this.img = this.user.details.image;
+            
+          }
+          console.log(this.logeado);
     postsService.getPosts().subscribe(posts => {
       this.posts = posts;
     });

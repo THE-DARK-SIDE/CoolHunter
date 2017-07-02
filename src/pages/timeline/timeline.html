@@ -16,7 +16,7 @@
 
 <ion-content class="fondo">
 
-  <ion-card>
+   <ion-card *ngIf = "!logeado">
     <ion-item (click)="back()">
       <ion-avatar item-left >
         <img src="assets/img/logo.png">
@@ -26,13 +26,13 @@
     </ion-item>
   </ion-card>
 
-  <ion-card>
+  <ion-card *ngIf = "logeado">
     <ion-item (click)="publicar()">
-      <ion-avatar item-left >
-        <img src="assets/img/kevin.jpg">
+      <ion-avatar item-left  *ngIf="dates.photo">
+        <img src="{{dates.photo}}">
       </ion-avatar>
-        <h2>Kevin Roman</h2>
-        <p><a>¿Que vas a publicar hoy?</a></p> 
+        <h2 *ngIf="nombre">{{nombre}}</h2>
+        <p *ngIf="correo"><a>{{correo}}</a></p> 
     </ion-item>
   </ion-card>
 

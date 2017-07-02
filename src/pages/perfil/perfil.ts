@@ -28,7 +28,6 @@ export class PerfilPage {
   public base64Image:string;
   correo;
   nombre;
-  img;
   prueba1;
   constructor(public alertCtrl: AlertController,public storage: Storage,public navCtrl: NavController, public navParams: NavParams,
   public actionSheetCtrl: ActionSheetController,public auth: Auth,public user: User, public loadingCtrl: LoadingController,
@@ -41,13 +40,9 @@ export class PerfilPage {
             this.dates.photo = this.user.get('photo' , '');
             this.nombre = this.user.details.name;
             this.correo = this.user.details.email;
-            this.img = this.user.get('photo' , '');
            
             if(this.dates.photo == null){
               this.dates.photo = this.user.details.image;
-            }
-             if(this.img == null){
-              this.img = this.user.details.image
             }
 
             // this.img = this.user.details.image;
@@ -118,15 +113,15 @@ export class PerfilPage {
     });
     actionSheet.present();
   }
-  prueba(){
-    this.storage.set('prueba1','hola mundo');
-    console.log(this.storage);
-  }
-  prueba2(){
-    this.storage.get('prueba1').then((data)=>{
-    console.log(data);
-    });
-  }
+  // prueba(){
+  //   this.storage.set('prueba1','hola mundo');
+  //   console.log(this.storage);
+  // }
+  // prueba2(){
+  //   this.storage.get('prueba1').then((data)=>{
+  //   console.log(data);
+  //   });
+  // }
   salir(){
     let confirm = this.alertCtrl.create({
       title: 'Salir de la App?',
