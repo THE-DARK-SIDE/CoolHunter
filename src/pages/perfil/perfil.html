@@ -77,7 +77,7 @@
                   <div class="rol-icon">
                   	<div class="rol"><ion-icon name="camera" item-left></ion-icon></div>
                     
-                    <div class="rol-name">Photographer</div>
+                    <div class="rol-name">Photogra</div>
                   </div>
 
                   <div class="rol-icon">
@@ -161,27 +161,47 @@
 			<ion-row>
 				<ion-col col-12 class="">
 					<ion-list>
+
 							<ion-item class="input-color">
 								<ion-label>
-									<ion-icon class="icon" name="md-person"></ion-icon>Email
+									<ion-icon class="icon" name="md-person"></ion-icon>Full Name:
 								</ion-label>
-								<ion-input type="email"></ion-input>
+								<ion-input type="text" [(ngModel)]="dates.name" [ngModelOptions]="{standalone: true}"></ion-input>
 							</ion-item>	
+
 							<ion-item class="input-color">
 								<ion-label>
-									<ion-icon name="ios-lock-outline"></ion-icon>Age
-								</ion-label>
-								<ion-input type="text"></ion-input>
+									<ion-icon class="icon" name="lock"></ion-icon>Password:
+									</ion-label>
+								<ion-input type="password " [(ngModel)]="dates.password" name="password"  [ngModelOptions]="{standalone: true} "></ion-input>
 							</ion-item>
+							
 							<ion-item class="input-color">
 								<ion-label>
-									<ion-icon name="ios-lock-outline"></ion-icon>Height
+									<ion-icon class="icon" name="unlock"></ion-icon>repeat password:
 								</ion-label>
-								<ion-input type="text"></ion-input>
+								<ion-input type="password " [(ngModel)]="dates.password2" name="Repetir"  [ngModelOptions]="{standalone: true} " ></ion-input>
+							</ion-item>	
+
+							<ion-item class="input-color">
+								<ion-label>
+									<ion-icon name="ios-calendar"></ion-icon>Age:
+								</ion-label>
+								<ion-input type="number" [(ngModel)]="dates.age" [ngModelOptions]="{standalone: true}"></ion-input>
 							</ion-item>
+
+							<ion-item class="input-color">
+								<ion-label>
+									<ion-icon name="ios-body"></ion-icon>Height:
+								</ion-label>
+								<ion-input type="text" [(ngModel)]="dates.height" [ngModelOptions]="{standalone: true}"></ion-input>
+							</ion-item>
+
 							<ion-item>
-								<ion-label><ion-icon name="ios-lock-outline"></ion-icon>Country</ion-label>
-								<ion-select [(ngModel)]="country">
+								<ion-label>
+									<ion-icon name="ios-map"></ion-icon>Country:
+								</ion-label>
+								<ion-select [(ngModel)]="dates.country" [ngModelOptions]="{standalone: true} ">
 									<ion-option value="V">Venezuela</ion-option>
 									<ion-option value="E">España</ion-option>
 									<ion-option value="P">Peru</ion-option>
@@ -189,28 +209,34 @@
 									<ion-option value="U">United States of America</ion-option>
 								</ion-select>
 							</ion-item>
+
 							<ion-item class="input-color">
 								<ion-label>
-									<ion-icon name="ios-lock-outline"></ion-icon>Phone number
+									<ion-icon name="ios-phone-portrait"></ion-icon>Phone number:
 								</ion-label>
-								<ion-input type="text"></ion-input>
+								<ion-input type="text" [(ngModel)]="dates.phone" [ngModelOptions]="{standalone: true}"></ion-input>
 							</ion-item>
+
 							<ion-item>
-								<ion-label><ion-icon name="ios-lock-outline"></ion-icon>Gender</ion-label>
-								<ion-select [(ngModel)]="gender">
+								<ion-label>
+									<ion-icon name="ios-male"></ion-icon>Gender:
+									</ion-label>
+								<ion-select [(ngModel)]="dates.gender" [ngModelOptions]="{standalone: true}">
 									<ion-option value="f">Female</ion-option>
 									<ion-option value="m">Male</ion-option>
 								</ion-select>
 							</ion-item>
+
 							<ion-item class="input-color">
 								<ion-label floating>
-									<ion-icon name="ios-lock-outline"></ion-icon>Comment
+									<ion-icon name="ios-chatbubbles"></ion-icon>Comment:
 								</ion-label>
-								<ion-textarea type="text"></ion-textarea>
+								<ion-textarea type="text" [(ngModel)]="dates.comment" [ngModelOptions]="{standalone: true}"></ion-textarea>
 							</ion-item>
+
 							<ion-item>
 								<ion-label>Select Your Rol</ion-label>
-								<ion-select [(ngModel)]="rol" multiple="true" okText="Okay" cancelText="Dismiss">
+								<ion-select [(ngModel)]="dates.rol" [ngModelOptions]="{standalone: true}" multiple="true" okText="Okay" cancelText="Dismiss">
 									<ion-option value="De">Developer</ion-option>
 									<ion-option value="Ph">Photographer</ion-option>
 									<ion-option value="Mo">Model</ion-option>
@@ -218,13 +244,15 @@
 									<ion-option value="Ot">Other</ion-option>									
 								</ion-select>
 							</ion-item>
-
+							
 					</ion-list>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
+				<form (ngSubmit)="accountt()">
+					<button ion-button round full style="background:#ff1664;">Registrar</button>
+				</form>
   </ion-list>
-
 </div>
 	
 
