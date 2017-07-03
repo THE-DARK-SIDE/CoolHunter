@@ -32,19 +32,19 @@
         <img src="{{dates.photo}}">
       </ion-avatar>
         <h2 *ngIf="nombre">{{nombre}}</h2>
-        <p *ngIf="correo"><a>{{correo}}</a></p> 
+        <p *ngIf="correo"><a>no se que poner aqui</a></p> 
     </ion-item>
   </ion-card>
 
   <!--lista de los posts traidos desde firebase-->
   <ion-card *ngFor="let post of posts">
 
-    <ion-item (click)="presentModal(post.id)">
-      <ion-avatar item-left>
-        <img src="assets/img/kevin.jpg">
+    <ion-item >
+      <ion-avatar item-left (click)="goToProfile(post.id)">
+        <img src="{{ post.autorimg }}">
       </ion-avatar>
-      <h2>Kevin Roman</h2>
-      <p>Developer Senior</p>
+      <h2 (click)="goToProfile(post.id)">{{ post.autor }}</h2>
+      <p>Publicado hace 2 horas.</p>
     </ion-item>
 
     <div class="cardd" (click)="presentModal(post.id)">
@@ -56,39 +56,54 @@
       </ion-fab>-->
     </div>
       
-    <ion-card-content>
-      <ion-row>
-        <ion-col>
-          <h2 class="titlecard">{{ post.title }}</h2>
-        </ion-col>
-        <ion-col style="text-align: right">
-        <button style="font-size:15px;"ion-button icon-left clear small (click)="presentPopover($event)">
-          <ion-icon name="md-share"></ion-icon>
-        </button>
-      </ion-col>
-      </ion-row>
+    <!--<ion-card-content>-->
+     
       <!--<p class="pcard">This is a "Facebook" styled Card. The header is created from a Thumbnail List item, the content is from a card-body consisting-->
       <!--            of an image and paragraph text. The footer consists of tabs, icons aligned left, within the card-footer.</p>-->
-    </ion-card-content>
+    <!--</ion-card-content>-->
 
     <ion-row>
-      <ion-col>
-        <button ion-button icon-left clear small>
+
+      <ion-col col-12>
+
+       <h2 class="titlecard" (click)="presentModal(post.id)">{{ post.title }}</h2>
+
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col col-4>
+        <button ion-button icon-left clear small (click)="likePost(post.id)">
           <ion-icon name="thumbs-up"></ion-icon>
-          <div>12 Likes</div>
+          <div>{{ post.likes }} Likes</div>
         </button>
       </ion-col>
-      <ion-col>
-        <button style="padding:0px;" ion-button icon-left clear small (click)="presentModal()">
+
+      <ion-col col-4 text-center>
+        <button style="padding:0px;" ion-button icon-left clear small (click)="presentModal(post.id)">
           <ion-icon name="text"></ion-icon>
           <div>3 Comments</div>
         </button>
       </ion-col>
-      <ion-col center text-center>
+
+      <ion-col  col-4 text-right>
+        <button style="padding:0;" ion-button icon-left clear small (click)="presentPopover($event)">
+          <ion-icon name="md-share"></ion-icon>
+          <div>Share</div>
+        </button>
+      </ion-col>
+      
+      <!--<ion-col (click)="presentModal(post.id)">
+        <h2 class="titlecard">{{ post.title }}</h2>
+      </ion-col>-->
+
+      <!--<ion-col center text-center>
         <ion-note>
           <ion-label style="margin: 10px 8px 10px 0;">11h ago</ion-label>
         </ion-note>
-      </ion-col>
+      </ion-col>-->
     </ion-row>
 
   </ion-card>

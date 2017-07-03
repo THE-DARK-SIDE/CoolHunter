@@ -12,17 +12,17 @@
 								<p><a>What are you going to publish today?</a></p> 
 						</ion-item>
 
-						<ion-thumbnail (click)="presentActionSheet();">
-							<img src="assets/img/screen.png" >
-						</ion-thumbnail>
-
 						<ion-list>
 
 							<ion-item>
 								<ion-label fixed>Tittle</ion-label>
 								<ion-input type="text" [(ngModel)]="post.title"></ion-input>
 							</ion-item>
-
+							
+							<ion-thumbnail (click)="presentActionSheet();">
+								<img src="assets/img/screen.png" >
+							</ion-thumbnail>
+							
 							<ion-item>
 								<ion-label fixed>Description</ion-label>
 								<ion-textarea  [(ngModel)]="post.text"></ion-textarea>
@@ -31,7 +31,7 @@
 						</ion-list>
 
 						<ion-item>
-							<button ion-button round full style="background:#ff1664;" (click)="addPost()">Public!</button>
+							<button ion-button round full style="background:#ff1664;" (click)="addPost()">PUBLICAR</button>
 						</ion-item>
 
 					</ion-card>

@@ -15,6 +15,7 @@ export class PostsService{
     public getPosts(){
 
         // return this.posts;
+        // this.afDB.list("posts/").map( (arr) => { return arr.reverse(); } );
         return this.afDB.list("posts/");
 
     }

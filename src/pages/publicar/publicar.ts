@@ -22,7 +22,7 @@ export class PublicarPage {
   
   public base64Image:string;
 
-  post = {id:null,title:null,text:null};
+  post = {id:null,title:null,text:null,autor:null,autorimg:null,autorid:null,time:null};
 
   id = null;
 
@@ -52,7 +52,7 @@ export class PublicarPage {
     this.id = navParams.get("id");
 
     if(this.id != 0){
-      
+
       postsService.getPost(this.id).subscribe(post =>{this.post = post;})
 
     }
@@ -140,6 +140,11 @@ export class PublicarPage {
     }else{
 
       this.post.id = Date.now();
+      this.dates.photo = this.user.get('photo' , '');
+      this.post.autorimg = this.dates.photo;
+      this.post.autor = this.user.details.name;
+      this.post.autorid = this.user.id;
+      this.post.time = Date.now();
       this.postsService.createPost(this.post)
       alert("nota creada")
 

@@ -34,20 +34,22 @@ export class TimelinePage {
     
     if (this.auth.isAuthenticated()) {
           
-            console.log(this.user);
-            this.logeado = 1;
-            this.dates.photo = this.user.get('photo' , '');
-            this.nombre = this.user.details.name;
-            this.correo = this.user.details.email;
-           
-            if(this.dates.photo == null){
-              this.dates.photo = this.user.details.image;
-            }
+      console.log(this.user);
+      this.logeado = 1;
+      this.dates.photo = this.user.get('photo' , '');
+      this.nombre = this.user.details.name;
+      this.correo = this.user.details.email;
+      
+      if(this.dates.photo == null){
+        this.dates.photo = this.user.details.image;
+      }
 
-            // this.img = this.user.details.image;
-            
-          }
-          console.log(this.logeado);
+      // this.img = this.user.details.image;
+      
+    }
+    
+    console.log(this.logeado);
+
     postsService.getPosts().subscribe(posts => {
       this.posts = posts;
     });
@@ -81,9 +83,15 @@ export class TimelinePage {
     this.navCtrl.push(LoginPage);
  }
 
- public goToDetailPage(id){
+ public goToProfile(id){
 
     this.navCtrl.push(DetailPage,{id:id});
+
+  }
+
+  public likePost(id){
+
+      // this.postsService.getPost(id).subscribe(post =>{this.post.likes = post;})
 
   }
 

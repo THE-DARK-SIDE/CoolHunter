@@ -4,17 +4,20 @@
 
   <ion-item>
     <ion-avatar item-left (click)="dismiss()">
-        <img src="assets/img/kevin.jpg">
+        <img src="{{ post.autorimg }}">
     </ion-avatar>
-      <h2>Kevin Roman</h2>
-      <p>Developer Senior</p>
+      <h2>{{ post.autor }}</h2>
+      <p>Publicado hace 2 horas.</p>
   </ion-item>
-  
+
     <img src="{{post.img}}">
     
   <ion-card-content>
+
     <h2 class="titlecard">{{post.title}}</h2>
+
     <p class="pcard">{{post.text}}</p>
+
   </ion-card-content>
 
   <ion-row>
