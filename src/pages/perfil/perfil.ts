@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import { AlertController } from 'ionic-angular';
 
 
+
 import { LoginPage } from '../login/login';
 import { TimelinePage } from '../timeline/timeline';
 import { SearchPage } from '../search/search';
@@ -24,7 +25,7 @@ import { SearchPage } from '../search/search';
 })
 export class PerfilPage {
   
-  dates = { photo:''}
+  dates = { photo:'',name:'',password:'',password2:'',age:'',height:'',country:'',phone:'',gender:'',comment:'',rol:''}
   public base64Image:string;
   correo;
   nombre;
@@ -40,7 +41,16 @@ export class PerfilPage {
             this.dates.photo = this.user.get('photo' , '');
             this.nombre = this.user.details.name;
             this.correo = this.user.details.email;
-           
+            this.dates.name = this.user.details.name;
+            this.dates.password = this.user.details.password
+            this.dates.password2 = this.user.get('password2','')
+            this.dates.age = this.user.get('age','')
+            this.dates.height = this.user.get('height','')
+            this.dates.country = this.user.get('country','')
+            this.dates.phone = this.user.get('phone','')
+            this.dates.gender = this.user.get('gender','')
+            this.dates.comment = this.user.get('comment','')
+            this.dates.rol = this.user.get('rol','')
             if(this.dates.photo == null){
               this.dates.photo = this.user.details.image;
             }
@@ -53,7 +63,32 @@ export class PerfilPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilPage');
   }
-  
+  accountt(){
+    let loading = this.loadingCtrl.create({
+    content: 'Please wait...'
+  });
+    loading.present().then(() => {
+
+    this.user.details.name = this.dates.name;
+    this.user.details.password = this.dates.password;
+    this.user.set('password2', this.dates.password2);
+    this.user.set('age', this.dates.age);
+    this.user.set('height', this.dates.height);
+    this.user.set('country', this.dates.country);
+    this.user.set('phone', this.dates.phone);
+    this.user.set('gender', this.dates.gender);
+    this.user.set('comment', this.dates.comment);
+    this.user.set('rol', this.dates.rol);
+    this.user.save(); 
+    loading.dismiss();
+   });
+   let toast = this.toastCtrl.create({
+        message: 'Successful registre',
+        duration: 3500,
+        position: 'top'
+        });
+        toast.present();
+  }
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Pefil',
