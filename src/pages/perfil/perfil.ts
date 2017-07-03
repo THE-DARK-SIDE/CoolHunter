@@ -11,6 +11,8 @@ import { AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { TimelinePage } from '../timeline/timeline';
 import { SearchPage } from '../search/search';
+import { Perfil3rosPage } from '../perfil3ros/perfil3ros';
+
 
 /**
  * Generated class for the PerfilPage page.
@@ -42,8 +44,8 @@ export class PerfilPage {
             this.nombre = this.user.details.name;
             this.correo = this.user.details.email;
             this.dates.name = this.user.details.name;
-            this.dates.password = this.user.details.password
-            this.dates.password2 = this.user.get('password2','')
+            //this.dates.password = this.user.details.password
+            //this.dates.password2 = this.user.get('password2','')
             this.dates.age = this.user.get('age','')
             this.dates.height = this.user.get('height','')
             this.dates.country = this.user.get('country','')
@@ -68,7 +70,8 @@ export class PerfilPage {
     content: 'Please wait...'
   });
     loading.present().then(() => {
-
+      this.user.load().then(() => {
+  // success!
     this.user.details.name = this.dates.name;
     this.user.details.password = this.dates.password;
     this.user.set('password2', this.dates.password2);
@@ -81,6 +84,7 @@ export class PerfilPage {
     this.user.set('rol', this.dates.rol);
     this.user.save(); 
     loading.dismiss();
+    });
    });
    let toast = this.toastCtrl.create({
         message: 'Successful registre',
@@ -187,5 +191,8 @@ export class PerfilPage {
   }
   search(){
     this.navCtrl.push(SearchPage);
+  }
+  other(){
+    this.navCtrl.push(Perfil3rosPage)
   }
 }

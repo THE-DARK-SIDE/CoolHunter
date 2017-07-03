@@ -1,0 +1,91 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>perfil3ros</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="fondo">
+
+  <ion-grid>
+		<ion-row>
+			<ion-col width-50 class="back-trans" ngIF="dates.photo">
+				<ion-thumbnail><img src="{{dates.photo}}" class="image"></ion-thumbnail>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col width-50 class="">
+				<div class="profile-content">
+
+                <span class="name" ngIF="nombre">{{nombre}}</span>
+                <!--</label>-->
+                <br>
+                <h5 class="subname" ngIF="dates.comment">{{dates.comment}}</h5>
+                <!--</label>-->
+                
+                <div class="roles"></div>
+                <div class="roles-icon">
+
+                  <div class="rol-icon">
+                  	<div class="rol"><ion-icon name="brush" item-left></ion-icon></div>
+                    
+                    <div class="rol-name">Make Up</div>
+                  </div>
+
+                  <div class="rol-icon">
+                  	<div class="rol"><ion-icon name="home" item-left></ion-icon></div>
+                    
+                    <div class="rol-name">Agency</div>
+                  </div>
+
+                </div>
+
+              </div>
+			</ion-col>
+		</ion-row>
+    <ion-row>
+      <ion-col col-4 text-center>
+        <button ion-button icon-left clear small>
+          <ion-badge item-end><ion-icon name="thumbs-up"> 260k</ion-icon> </ion-badge>
+        </button>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <button ion-button icon-left clear small>
+          <ion-badge item-end><ion-icon name="text"> 10</ion-icon> </ion-badge>
+        </button>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <button ion-button icon-left clear small>
+          <ion-badge item-end><ion-icon name="ios-contacts"> 5</ion-icon> </ion-badge>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+       <ion-item>
+          <ion-avatar item-left>
+            <img src="assets/img/kevin.jpg">
+          </ion-avatar>
+          <ion-label stacked class="labelll">Show Time</ion-label>
+          <ion-textarea class="texttareaa" type="text" disabled="true" value="Esta es mi primera publicacion!"></ion-textarea>
+        </ion-item>
+        
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="assets/img/kevin.jpg">
+          </ion-avatar>
+          <ion-label stacked class="labelll">Post 2</ion-label>
+          <ion-textarea class="texttareaa" type="text" disabled="true" value="Me gustaria contactar con ustedes!!"></ion-textarea>
+        </ion-item>
+        
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="assets/img/kevin.jpg">
+          </ion-avatar>
+          <ion-label stacked class="labelll">Post 3</ion-label>
+          <ion-textarea class="texttareaa" type="text" disabled="true" value="Me encanta esta foto!" ></ion-textarea>
+        </ion-item>
+    </ion-row>
+	</ion-grid>
+
+</ion-content>

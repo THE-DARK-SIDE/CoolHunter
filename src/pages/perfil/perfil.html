@@ -25,7 +25,7 @@
         <ion-icon name="star" item-left></ion-icon>
 		<ion-label class="text">Search</ion-label>
 			</button>
-			<button ion-item class="text-center2" >
+			<button ion-item class="text-center2" (click)="other()">
         <ion-icon name="star" item-left></ion-icon>
 		<ion-label class="text">Other</ion-label>
 			</button>
@@ -68,9 +68,8 @@
                 <span class="name" ngIF="nombre">{{nombre}}</span>
                 <!--</label>-->
                 <br>
-                <span class="subname">new description!</span>
+                <h5 class="subname" ngIF="dates.comment">{{dates.comment}}</h5>
                 <!--</label>-->
-                <br>
                 <div class="roles"></div>
                 <div class="roles-icon">
 

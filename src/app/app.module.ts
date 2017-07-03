@@ -23,7 +23,7 @@ import { ModalPage } from '../pages/modal/modal';
 import { SearchmodalPage } from '../pages/searchmodal/searchmodal';
 import { DetailPage } from '../pages/detail/detail';
 import { PublicarPage } from '../pages/publicar/publicar';
-
+import { Perfil3rosPage } from '../pages/perfil3ros/perfil3ros';
 
 import { PostsService } from '../services/posts.service';
 
@@ -67,7 +67,8 @@ const cloudSettings: CloudSettings = {
     ModalPage,
     SearchmodalPage,
     DetailPage,
-    PublicarPage
+    PublicarPage,
+    Perfil3rosPage
   ],
   imports: [
     BrowserModule,
@@ -92,7 +93,8 @@ const cloudSettings: CloudSettings = {
     ModalPage,
     SearchmodalPage,
     DetailPage,
-    PublicarPage
+    PublicarPage,
+    Perfil3rosPage
   ],
   providers: [
     StatusBar,

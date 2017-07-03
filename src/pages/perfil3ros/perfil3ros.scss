@@ -1,5 +1,5 @@
-page-perfil {
-    .fondo{
+page-perfil3ros {
+        .fondo{
         background: rgba(0,0,0,1);
         background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(43,43,43,1) 0%, rgba(17,17,17,1) 0%, rgba(19,19,19,1) 7%, rgba(102,102,102,1) 99%, rgba(76,76,76,1) 100%);
         background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(0%, rgba(28,28,28,1)), color-stop(0%, rgba(43,43,43,1)), color-stop(0%, rgba(17,17,17,1)), color-stop(7%, rgba(19,19,19,1)), color-stop(99%, rgba(102,102,102,1)), color-stop(100%, rgba(76,76,76,1)));
@@ -8,14 +8,6 @@ page-perfil {
         background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(43,43,43,1) 0%, rgba(17,17,17,1) 0%, rgba(19,19,19,1) 7%, rgba(102,102,102,1) 99%, rgba(76,76,76,1) 100%);
         background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(43,43,43,1) 0%, rgba(17,17,17,1) 0%, rgba(19,19,19,1) 7%, rgba(102,102,102,1) 99%, rgba(76,76,76,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#4c4c4c', GradientType=0 );
-    }
-    .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus.item-inner{
-        border-bottom-color: #ff1664;
-        box-shadow: inset 0 -1px 0 0 #ff1664;
-    }
-    .list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child{
-        border-bottom-color: #ff1664;
-        box-shadow: inset 0 -1px 0 0 #ff1664;
     }
     .toolbar-title{
         text-align: center;
@@ -26,9 +18,6 @@ page-perfil {
     
     .toolbar-background{
         background: #1c252c;
-    }
-    .grid{
-        background: #444444;
     }
     .back-trans{
 		background: white;
@@ -61,40 +50,15 @@ page-perfil {
         text-align: center
       }
     }
+    .grid{
+        background: #444444;
+    }
     .imgmenu{
         float: left;
         border-radius: 100%;
         border: 1px white solid;
         padding: 10px;
     }
-    .segment-md .segment-button.segment-activated{
-        border-color:  #ff1664;
-    }
-    #menu{
-        ion-icon{
-            color: white;
-            border-radius: 100%;
-            background: #868282;
-            padding: 5px;
-            font-size: 2.4rem;
-        }
-        p{
-            color:#b1b1b1;
-        }
-        h2{
-            color:white;
-        }
-        .label{
-            color:white;
-        }
-        .text{
-            padding-left: 10px;
-        }
-        .item-md ion-icon[item-left] + .item-inner{
-            margin-left:0px;
-        }
-    }
-    
     .profile-content{
 
     margin-top:10px;
@@ -173,42 +137,28 @@ page-perfil {
       
       }
     }
-    .segment-md .segment-button{
-        color:white;
+    .button-small{
+        padding: 0!important;
     }
-    #history{
-
-        .histori-h{
-            color: white;
-            font-family: helvetica;
-        }
-        .histori-icon{
-            margin: 0px 10px 10px 0px!important;
-            color: gold;
-            min-height: 3.4rem;
-            font-size: 1.8rem;
-        }
-        .item-inner{
+    .badge{
+        background-color:#fe195b;
+        border-radius: 25px;
+    }
+    .labelll{
+        color: white!important;
+        font-family: helvetica;
+    }
+    .item-inner{
             border-bottom: 0px!important;
         }
+    .texttareaa{
+        color: gold;
+        
     }
-    #account{
-            ion-icon{
-            padding: 0px 15px 0px 0px;
-        }
-        .rol{
-            text-align: center;
-            color: white;
-        }
-        .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
-            border-bottom-color: white;
-            box-shadow: inset 0 0 0 0 white;
-        }
-        .text-input-md{
-            color: white;
-        }
-        .select{
-            color: white;
-        }
+    .text-input[disabled]{
+        opacity: 1!important;
+    }
+    .item.item-textarea{
+        border-bottom: 1px solid white;
     }
 }
