@@ -11,6 +11,7 @@ export class PostsService{
     }
 
     posts = [];
+    users = [];
 
     public getPosts(){
 
@@ -20,10 +21,24 @@ export class PostsService{
 
     }
 
+    public getUsers(){
+
+        return this.afDB.list("users/");
+
+    }
+
     public getPost(id){
 
         // return this.posts.filter(function(e,i){ return e.id == id})[0] || {id:null,title:null,text:null};
         return this.afDB.object('posts/'+id);
+
+    
+    }
+
+    public getUser(id){
+
+        // return this.posts.filter(function(e,i){ return e.id == id})[0] || {id:null,title:null,text:null};
+        return this.afDB.object('users/'+id);
 
     }
 

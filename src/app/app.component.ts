@@ -3,14 +3,14 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import { TimelinePage } from '../pages/timeline/timeline';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { Auth, User } from '@ionic/cloud-angular';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = TimelinePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public auth: Auth, public user: User) {
     platform.ready().then(() => {
@@ -20,12 +20,12 @@ export class MyApp {
       splashScreen.hide();
        if (this.auth.isAuthenticated()) {
         // this.user is authenticated!
-        console.log(this.user.id);
+        // console.log(this.user.id);
   
-        this.rootPage = PerfilPage;
+        // this.rootPage = PerfilPage;
         
       }else{
-        this.rootPage = HomePage;
+        this.rootPage = TimelinePage;
       }
     });
   }

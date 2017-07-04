@@ -5,6 +5,8 @@ import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 // import { Camera } from 'ionic-native';
 import { PostsService } from '../../services/posts.service';
 
+import * as moment from 'moment';
+
 import { PopoverPage } from '../popover/popover';
 import { ModalPage } from '../modal/modal';
 import { SearchPage } from '../search/search';
@@ -22,6 +24,7 @@ import { DetailPage } from '../detail/detail';
 export class TimelinePage {
 
   posts = [];
+  users = [];
   dates = { photo:''}
   correo;
   nombre;
@@ -34,7 +37,7 @@ export class TimelinePage {
     
     if (this.auth.isAuthenticated()) {
           
-      console.log(this.user);
+      // console.log(this.user);
       this.logeado = 1;
       this.dates.photo = this.user.get('photo' , '');
       this.nombre = this.user.details.name;
@@ -48,16 +51,35 @@ export class TimelinePage {
       
     }
     
-    console.log(this.logeado);
+    // console.log(this.logeado);
 
     postsService.getPosts().subscribe(posts => {
       this.posts = posts;
+      this.posts.reverse();
+      console.log(this.posts)
+
+    for (var index = 0; index < this.posts.length; index++) {
+      this.posts[index].published = moment(this.posts[index].published).fromNow()  
+    }
+    // this.posts[3].published = moment(this.posts[3].published).fromNow();
+      // for(i = 0; i < this.posts.length; ){}
     });
 
+    postsService.getUsers().subscribe(users =>{
+
+      this.users = users;
+
+    })
+
 }
+  // ngOnInit() {
+  //   let now = moment().format('LLL');
+  //   console.log(now);
+  //   moment().startOf('day').fromNow();
+  // }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TimelinePage');
+    // console.log('ionViewDidLoad TimelinePage');
   }
   presentPopover(myEvent) {
     let popover = this.popoverCtrl.create(PopoverPage);
@@ -83,7 +105,7 @@ export class TimelinePage {
     this.navCtrl.push(LoginPage);
  }
 
- public goToProfile(id){
+  public goToProfile(id){
 
     this.navCtrl.push(DetailPage,{id:id});
 

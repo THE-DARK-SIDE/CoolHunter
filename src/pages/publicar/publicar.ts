@@ -4,6 +4,7 @@ import { Camera } from 'ionic-native';
 import { PostsService } from '../../services/posts.service';
 import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 
+import * as moment from 'moment';
 
 /**
  * Generated class for the PublicarPage page.
@@ -22,7 +23,7 @@ export class PublicarPage {
   
   public base64Image:string;
 
-  post = {id:null,title:null,text:null,autor:null,autorimg:null,autorid:null,time:null};
+  post = {id:null,title:null,text:null,autor:null,autorimg:null,autorid:null,time:null,published:null};
 
   id = null;
 
@@ -145,6 +146,7 @@ export class PublicarPage {
       this.post.autor = this.user.details.name;
       this.post.autorid = this.user.id;
       this.post.time = Date.now();
+      this.post.published =  moment().format('LLL');
       this.postsService.createPost(this.post)
       alert("nota creada")
 
