@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PostsService } from '../../services/posts.service';
+import { ServiceProvider } from '../../providers/service/service';
+
 
 @IonicPage()
 @Component({
@@ -13,44 +14,44 @@ export class DetailPage {
 
   id = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public postsService: PostsService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service : ServiceProvider) {
     
     this.id = navParams.get("id");
 
     if(this.id != 0){
       
-      postsService.getPost(this.id).subscribe(post =>{this.post = post;})
+      // service.getPost(this.id).subscribe(post =>{this.post = post;})
 
     }
 
   }
 
-    addPost(){
+    // addPost(){
 
-      if(this.id != 0){
+    //   if(this.id != 0){
             
-        // this.post.id = Date.now();
-        this.postsService.editPost(this.post)
-        alert("nota editada")
+    //     // this.post.id = Date.now();
+    //     this.postsService.editPost(this.post)
+    //     alert("nota editada")
 
-      }else{
+    //   }else{
 
-        this.post.id = Date.now();
-        this.postsService.createPost(this.post)
-        alert("nota creada")
+    //     this.post.id = Date.now();
+    //     this.postsService.createPost(this.post)
+    //     alert("nota creada")
 
-      }
+    //   }
 
-        this.navCtrl.pop();
+    //     this.navCtrl.pop();
 
-    }
+    // }
 
-    deletePost(){
+    // deletePost(){
 
-      this.postsService.deletePost(this.post);
-      alert("nota creada")
-      this.navCtrl.pop();
+    //   this.postsService.deletePost(this.post);
+    //   alert("nota creada")
+    //   this.navCtrl.pop();
 
-      }
+    // }
 
 }
