@@ -22,7 +22,7 @@ export class MyApp {
         // this.user is authenticated!
         // console.log(this.user.id);
   
-        // this.rootPage = PerfilPage;
+        this.rootPage = PerfilPage;
         
       }else{
         this.rootPage = TimelinePage;

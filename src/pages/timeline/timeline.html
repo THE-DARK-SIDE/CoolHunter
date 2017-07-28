@@ -19,22 +19,20 @@
   <ion-card *ngIf = "!logeado">
     <ion-item (click)="back()">
       <ion-avatar item-left >
-        <img src="assets/img/logo.png">
+        <img src="/assets/img/default-avatar.png">
       </ion-avatar>
-      <ion-card-content>
         <h2>Invitado</h2>
         <p><a>¿Quieres publicar algo?</a></p> 
-      </ion-card-content>
     </ion-item>
   </ion-card>
 
   <ion-card *ngIf = "logeado">
-    <ion-item (click)="publicar()">
-      <ion-avatar item-left  *ngIf="dates.photo">
+    <ion-item>
+      <ion-avatar item-left (click)="goToProfile()">
         <img src="{{dates.photo}}">
       </ion-avatar>
-      <h2 *ngIf="nombre">{{nombre}}</h2>
-      <p *ngIf="correo"><a>Publiquemos algo!</a></p> 
+      <h2>{{nombre}}</h2>
+      <p (click)="publicar()"><a>Publiquemos algo!</a></p> 
     </ion-item>
   </ion-card>
 
@@ -104,18 +102,18 @@
 
   </ion-card>-->
 
-  <ion-card *ngFor="let post of posts || async">
+  <ion-card *ngFor="let post of posts">
 
     <ion-item>
       <ion-avatar item-left>
-        <img src="{{dates.photo}}">
+        <img src="{{post.autorimg}}">
       </ion-avatar>
-        <h2 *ngIf="nombre">{{nombre}}</h2>
-        <p *ngIf="correo"><a>Publicado hace 2 horas.</a></p> 
+        <h2>{{post.autor}}</h2>
+        <p><a>Publicado {{post.published}}</a></p> 
     </ion-item>
     
       <div class="cardd" (click)="presentModal(post.id)">
-        <img src="{{ post.picture }}" *ngIf = "post.picture">
+        <img src="{{ post.img }}" *ngIf = "post.img">
       </div>
       
     <ion-row>

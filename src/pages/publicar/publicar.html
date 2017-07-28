@@ -12,11 +12,11 @@
 								<p><a>What are you going to publish today?</a></p> 
 						</ion-item>
 
-						<form #f="ngForm" (ngSubmit)="envioDatos(f)">
+						<!--<form #f="ngForm" (ngSubmit)="envioDatos(f)">-->
 
 							<ion-list>
 
-								<ion-item>
+								<!--<ion-item>
 									<ion-label floating >Nombre</ion-label>
 									<ion-input type="text" name="title" ngModel #title = "ngModel"></ion-input>
 								</ion-item>
@@ -24,10 +24,10 @@
 								<ion-item>
 									<ion-label floating >Precio</ion-label>
 									<ion-input type="text" name="text" ngModel #text = "ngModel"></ion-input>
-								</ion-item>
+								</ion-item>-->
 
-								<!--<ion-item>
-									<ion-label fixed>Tittle</ion-label>
+								<ion-item>
+									<ion-label floating>Tittle</ion-label>
 									<ion-input type="text" [(ngModel)]="post.title"></ion-input>
 								</ion-item>
 								
@@ -36,17 +36,18 @@
 								</ion-thumbnail>
 								
 								<ion-item>
-									<ion-label fixed>Description</ion-label>
+									<ion-label floating>Description</ion-label>
 									<ion-textarea  [(ngModel)]="post.text"></ion-textarea>
-								</ion-item>-->
+								</ion-item>
+
 								<ion-item>
-									<!--<button ion-button round full style="background:#ff1664;" (click)="addPost()">PUBLICAR</button>-->
-									<button ion-button round full color="danger" >PUBLICAR</button>
+									<button ion-button round full style="background:#ff1664;" (click)="addPost()">PUBLICAR</button>
+									<!--<button ion-button round full color="danger" >PUBLICAR</button>-->
 								</ion-item>
 
 							</ion-list>
 
-						</form>
+						<!--</form>-->
 
 					</ion-card>
 				</ion-col>

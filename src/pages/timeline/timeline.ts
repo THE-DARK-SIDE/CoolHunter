@@ -2,14 +2,15 @@ import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, PopoverController, ModalController, ViewController } from 'ionic-angular';
 import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 // import firebase from 'firebase';
-// import { Camera } from 'ionic-native';
+import { Camera } from 'ionic-native';
 
 // provedores
-// import { PostsService } from '../../services/posts.service';
-import { ServiceProvider } from '../../providers/service/service';
+import { PostsService } from '../../services/posts.service';
+// import { ServiceProvider } from '../../providers/service/service';
 
+import { PerfilPage } from '../perfil/perfil';
 
-// import * as moment from 'moment';
+import * as moment from 'moment';
 
 import { PopoverPage } from '../popover/popover';
 import { ModalPage } from '../modal/modal';
@@ -40,7 +41,7 @@ export class TimelinePage {
     public navCtrl: NavController, public navParams: NavParams, 
     public popoverCtrl: PopoverController, public modalCtrl: ModalController, 
     public viewCtrl: ViewController, //public postsService : PostsService,
-    public service : ServiceProvider, public auth: Auth, public user: User
+    public service : PostsService, public auth: Auth, public user: User
   ){
     
       if (this.auth.isAuthenticated()) {
@@ -61,43 +62,47 @@ export class TimelinePage {
       
       // console.log(this.logeado);
 
-      // postsService.getPosts().subscribe(posts => {
-      //   this.posts = posts;
-      //   this.posts.reverse();
-      //   console.log(this.posts)
+      service.getPosts().subscribe(posts => {
 
-      //   for (var index = 0; index < this.posts.length; index++) {
-      //     this.posts[index].published = moment(this.posts[index].published).fromNow()  
-      //   }
-      // });
-      // this.posts[3].published = moment(this.posts[3].published).fromNow();
-        // for(i = 0; i < this.posts.length; ){}
+        this.posts = posts;
+        this.posts.reverse();
+
+        for (var index = 0; index < this.posts.length; index++) {
+
+          this.posts[index].published = moment(this.posts[index].published).fromNow();  
+
+        }
+
+
+        console.log(this.posts)
+
+      });
 
       // this.mostrarProductos();
       // console.log(this.mostrarPosts())
-      this.mostrarPosts();
+      // this.mostrarPosts();
 
     }
 
-    mostrarProductos(){
+    // mostrarProductos(){
 
-      this.service.getProducts().subscribe(
-        data => this.products = data,
-        err => console.log(err)
+    //   this.service.getProducts().subscribe(
+    //     data => this.products = data,
+    //     err => console.log(err)
         
-      )
+    //   )
 
-    }
+    // }
     
-    mostrarPosts(){
+    // mostrarPosts(){
 
-      this.service.getPosts().subscribe(
-        data => this.posts = data,
-        err => console.log(err)
+    //   this.service.getPosts().subscribe(
+    //     data => this.posts = data,
+    //     err => console.log(err)
         
-      )
+    //   )
 
-    }
+    // }
 
 
   // ngOnInit() {
@@ -136,16 +141,14 @@ export class TimelinePage {
     this.navCtrl.push(LoginPage);
  }
 
-  public goToProfile(id){
+  // public goToProfile(id){
 
-    this.navCtrl.push(DetailPage,{id:id});
+  //   this.navCtrl.push(DetailPage,{id:id});
 
-  }
+  // }
 
-  public likePost(id){
-
-      // this.postsService.getPost(id).subscribe(post =>{this.post.likes = post;})
-
+  goToProfile(){
+    this.navCtrl.push(PerfilPage);
   }
 
 

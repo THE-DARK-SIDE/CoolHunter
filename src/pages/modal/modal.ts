@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController  } from 'ionic-angular';
-import { ServiceProvider } from '../../providers/service/service';
+import { PostsService } from '../../services/posts.service';
 
 /**
  * Generated class for the ModalPage page.
@@ -21,7 +21,7 @@ export class ModalPage {
 
   constructor(
     public navCtrl: NavController, public navParams: NavParams,
-    public viewCtrl: ViewController,public service : ServiceProvider) {
+    public viewCtrl: ViewController,public service : PostsService) {
   
     this.id = navParams.get("id");
 
@@ -34,12 +34,15 @@ export class ModalPage {
 }
 
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad ModalPage');
+
   }
   
   dismiss() {
    
    this.viewCtrl.dismiss();
+
  }
 
 }

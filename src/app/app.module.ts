@@ -26,8 +26,8 @@ import { DetailPage } from '../pages/detail/detail';
 import { PublicarPage } from '../pages/publicar/publicar';
 import { Perfil3rosPage } from '../pages/perfil3ros/perfil3ros';
 
-// import { PostsService } from '../services/posts.service';
-import { ServiceProvider } from '../providers/service/service';
+import { PostsService } from '../services/posts.service';
+// import { ServiceProvider } from '../providers/service/service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBKO28EsR4sF_Fd5lYKpvdv6NdrvBqOzmk",
@@ -103,8 +103,8 @@ const cloudSettings: CloudSettings = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    // PostsService,
-    ServiceProvider
+    PostsService
+    // ServiceProvider
   ]
 })
 export class AppModule {}

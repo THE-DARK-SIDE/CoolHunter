@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController, Platform, ViewController, AlertController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import { TimelinePage } from '../timeline/timeline';
-// import { PostsService } from '../../services/posts.service';
+import { PostsService } from '../../services/posts.service';
+// import { ServiceProvider } from '../../providers/service/service';
 import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 
-import { ServiceProvider } from '../../providers/service/service';
 
-// import * as moment from 'moment';
+import * as moment from 'moment';
 
 /**
  * Generated class for the PublicarPage page.
@@ -28,7 +28,7 @@ export class PublicarPage {
   
   public base64Image:string;
 
-  post = {id:null,title:null,text:null};
+  post = {id:null,title:null,text:null,autor:null,autorimg:null,autorid:null,time:null,published:null,likes:null};
 
   id = null;
 
@@ -41,8 +41,8 @@ export class PublicarPage {
   constructor(
     public viewCtrl: ViewController, public navCtrl: NavController, 
     public navParams: NavParams,public actionSheetCtrl: ActionSheetController,
-    public platform: Platform, //public postsService: PostsService,
-    public auth: Auth,public user: User, public service: ServiceProvider,
+    public platform: Platform, public postsService: PostsService,
+    public auth: Auth,public user: User,// public service: ServiceProvider,
     public alerts: AlertController
   ) {
 
@@ -69,31 +69,31 @@ export class PublicarPage {
 
     }
 
-    envioDatos(req){
+    // envioDatos(req){
 
-      this.service.registerPosts(req.value).subscribe(
-        data => {
-          this.showAlert(data.mensaje)
-          console.log(data.mensaje)
-        },
-        err => console.log(err)
-        );
-    }
+    //   this.service.registerPosts(req.value).subscribe(
+    //     data => {
+    //       this.showAlert(data.mensaje)
+    //       console.log(data.mensaje)
+    //     },
+    //     err => console.log(err)
+    //     );
+    // }
 
-    showAlert(msj){
+    // showAlert(msj){
 
-      let alert = this.alerts.create({
+    //   let alert = this.alerts.create({
 
-        title: 'informacion',
-        subTitle: msj,
-        buttons:['OK']
+    //     title: 'informacion',
+    //     subTitle: msj,
+    //     buttons:['OK']
 
-      });
+    //   });
 
-      alert.present();
-      this.viewCtrl.dismiss();
+    //   alert.present();
+    //   this.viewCtrl.dismiss();
 
-    }
+    // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PublicarPage');
@@ -165,31 +165,32 @@ export class PublicarPage {
 
   }
 
-  // addPost(){
+  addPost(){
 
-  //   if(this.id != 0){
+    if(this.id != 0){
           
-  //     // this.post.id = Date.now();
-  //     this.postsService.editPost(this.post)
-  //     alert("nota editada")
+      // this.post.id = Date.now();
+      this.postsService.editPost(this.post)
+      alert("nota editada")
 
-  //   }else{
+    }else{
 
-  //     this.post.id = Date.now();
-  //     this.dates.photo = this.user.get('photo' , '');
-  //     this.post.autorimg = this.dates.photo;
-  //     this.post.autor = this.user.details.name;
-  //     this.post.autorid = this.user.id;
-  //     this.post.time = Date.now();
-  //     this.post.published =  moment().format('LLL');
-  //     this.postsService.createPost(this.post)
-  //     alert("nota creada")
+      this.post.id = Date.now();
+      this.dates.photo = this.user.get('photo' , '');
+      this.post.autorimg = this.dates.photo;
+      this.post.autor = this.user.details.name;
+      this.post.autorid = this.user.id;
+      this.post.time = Date.now();
+      this.post.likes = 0;
+      this.post.published =  moment().format('LLL');
+      this.postsService.createPost(this.post)
+      alert("nota creada")
 
-  //   }
+    }
 
-  //     this.navCtrl.pop();
+      this.navCtrl.pop();
 
-  // }
+  }
 
   // deletePost(){
 
