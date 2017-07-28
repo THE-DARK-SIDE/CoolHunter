@@ -25,6 +25,12 @@ export class ServiceProvider {
     return this.http.get(this.api + 'listado.php').map(res =>res.json().reverse())
 
   }
+  
+  getUsers(){
+
+    return this.http.get(this.api + 'users.php').map(res =>res.json())
+
+  }
 
   registerProduct(params){
 

@@ -19,7 +19,9 @@ export class ModalPage {
 
   id = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController,public service : ServiceProvider) {
+  constructor(
+    public navCtrl: NavController, public navParams: NavParams,
+    public viewCtrl: ViewController,public service : ServiceProvider) {
   
     this.id = navParams.get("id");
 
