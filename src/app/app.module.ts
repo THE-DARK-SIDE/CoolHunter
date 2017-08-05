@@ -9,6 +9,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -26,6 +27,7 @@ import { PublicarPage } from '../pages/publicar/publicar';
 import { Perfil3rosPage } from '../pages/perfil3ros/perfil3ros';
 
 import { PostsService } from '../services/posts.service';
+// import { ServiceProvider } from '../providers/service/service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBKO28EsR4sF_Fd5lYKpvdv6NdrvBqOzmk",
@@ -71,6 +73,7 @@ const cloudSettings: CloudSettings = {
     Perfil3rosPage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
@@ -101,6 +104,7 @@ const cloudSettings: CloudSettings = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PostsService
+    // ServiceProvider
   ]
 })
 export class AppModule {}

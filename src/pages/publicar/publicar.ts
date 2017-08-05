@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController, Platform, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, Platform, ViewController, AlertController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
+import { TimelinePage } from '../timeline/timeline';
 import { PostsService } from '../../services/posts.service';
+// import { ServiceProvider } from '../../providers/service/service';
 import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 
+
+import * as moment from 'moment';
 
 /**
  * Generated class for the PublicarPage page.
@@ -12,17 +16,19 @@ import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
  * on Ionic pages and navigation.
  */
 @IonicPage()
+
 @Component({
   selector: 'page-publicar',
   templateUrl: 'publicar.html',
 })
+
 export class PublicarPage {
 
   publicacion = {'photo':''};
   
   public base64Image:string;
 
-  post = {id:null,title:null,text:null,autor:null,autorimg:null,autorid:null,time:null};
+  post = {id:null,title:null,text:null,autor:null,autorimg:null,autorid:null,time:null,published:null,likes:null};
 
   id = null;
 
@@ -32,32 +38,62 @@ export class PublicarPage {
 
   nombre;
 
-  constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams,
-  public actionSheetCtrl: ActionSheetController,public platform: Platform, public postsService: PostsService,
-  public auth: Auth,public user: User) {
+  constructor(
+    public viewCtrl: ViewController, public navCtrl: NavController, 
+    public navParams: NavParams,public actionSheetCtrl: ActionSheetController,
+    public platform: Platform, public postsService: PostsService,
+    public auth: Auth,public user: User,// public service: ServiceProvider,
+    public alerts: AlertController
+  ) {
 
-     if (this.auth.isAuthenticated()) {
-          
-            console.log(this.user);
-            this.dates.photo = this.user.get('photo' , '');
-            this.nombre = this.user.details.name;
-            this.correo = this.user.details.email;
-           
-            if(this.dates.photo == null){
-              this.dates.photo = this.user.details.image;
-            }
+      if (this.auth.isAuthenticated()) {
             
-          }
-    //
-    this.id = navParams.get("id");
+        console.log(this.user);
+        this.dates.photo = this.user.get('photo' , '');
+        this.nombre = this.user.details.name;
+        this.correo = this.user.details.email;
+        
+        if(this.dates.photo == null){
+          this.dates.photo = this.user.details.image;
+        }
+        
+      }
+      //
+      this.id = navParams.get("id");
 
-    if(this.id != 0){
+      if(this.id != 0){
 
-      postsService.getPost(this.id).subscribe(post =>{this.post = post;})
+        // service.getPost(this.id).subscribe(post =>{this.post = post;})
+
+      }
 
     }
 
-  }
+    // envioDatos(req){
+
+    //   this.service.registerPosts(req.value).subscribe(
+    //     data => {
+    //       this.showAlert(data.mensaje)
+    //       console.log(data.mensaje)
+    //     },
+    //     err => console.log(err)
+    //     );
+    // }
+
+    // showAlert(msj){
+
+    //   let alert = this.alerts.create({
+
+    //     title: 'informacion',
+    //     subTitle: msj,
+    //     buttons:['OK']
+
+    //   });
+
+    //   alert.present();
+    //   this.viewCtrl.dismiss();
+
+    // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PublicarPage');
@@ -145,6 +181,8 @@ export class PublicarPage {
       this.post.autor = this.user.details.name;
       this.post.autorid = this.user.id;
       this.post.time = Date.now();
+      this.post.likes = 0;
+      this.post.published =  moment().format('LLL');
       this.postsService.createPost(this.post)
       alert("nota creada")
 
@@ -154,12 +192,14 @@ export class PublicarPage {
 
   }
 
-  deletePost(){
+  // deletePost(){
 
-    this.postsService.deletePost(this.post);
-    alert("nota creada")
-    this.navCtrl.pop();
+  //   this.postsService.deletePost(this.post);
+  //   alert("nota creada")
+  //   this.navCtrl.pop();
 
-  }
+  // }
+
+// }
 
 }

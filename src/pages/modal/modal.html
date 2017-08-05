@@ -10,7 +10,7 @@
       <p>Publicado hace 2 horas.</p>
   </ion-item>
 
-    <img src="{{post.img}}">
+  <img src="{{ post.img }}" *ngIf = "post.img">
     
   <ion-card-content>
 
@@ -25,7 +25,7 @@
     <ion-col col-4>
       <button ion-button icon-left clear small>
         <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
+        <div>{{post.likes}} Likes</div>
       </button>
     </ion-col>
     

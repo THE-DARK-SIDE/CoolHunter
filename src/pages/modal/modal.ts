@@ -19,25 +19,30 @@ export class ModalPage {
 
   id = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController,public postsService : PostsService) {
+  constructor(
+    public navCtrl: NavController, public navParams: NavParams,
+    public viewCtrl: ViewController,public service : PostsService) {
   
     this.id = navParams.get("id");
 
     if(this.id != 0){
       
-      postsService.getPost(this.id).subscribe(post =>{this.post = post;})
+      service.getPost(this.id).subscribe(post =>{this.post = post;})
 
     }
 
 }
 
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad ModalPage');
+
   }
   
   dismiss() {
    
    this.viewCtrl.dismiss();
+
  }
 
 }
