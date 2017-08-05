@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TimelinePage } from '../pages/timeline/timeline';
 import { PerfilPage } from '../pages/perfil/perfil';
+import { HomePage } from '../pages/home/home';
 import { Auth, User } from '@ionic/cloud-angular';
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +26,7 @@ export class MyApp {
         this.rootPage = PerfilPage;
         
       }else{
-        this.rootPage = TimelinePage;
+        this.rootPage = HomePage;
       }
     });
   }
